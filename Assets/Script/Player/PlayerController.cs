@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat("SpeedX", Mathf.Abs(_rb2d.velocity.x));
         _animator.SetFloat("SpeedY", _rb2d.velocity.y);
         _animator.SetBool("Grounded", _grounded);
+        _animator.SetBool("Wall", _wall);
 
         if (_grounded)
         {
