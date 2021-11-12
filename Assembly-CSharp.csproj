@@ -37,17 +37,20 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
-     <Compile Include="Assets\Script\GUI\ControladorPortada.cs" />
-     <Compile Include="Assets\Script\GUI\GameOver.cs" />
+     <Compile Include="Assets\Script\GUI\Bars\IceBar.cs" />
+     <Compile Include="Assets\Script\GUI\MainMenu\ControladorPortada.cs" />
+     <Compile Include="Assets\Script\GUI\GameOver\GameOver.cs" />
+     <Compile Include="Assets\Script\GUI\Bars\FloorBar.cs" />
      <Compile Include="Assets\Script\Player\CheckGround.cs" />
      <Compile Include="Assets\Script\GUI\Bars\HelthBar.cs" />
      <Compile Include="Assets\Script\GUI\Bars\KillBar.cs" />
-     <Compile Include="Assets\Script\GUI\Pause.cs" />
+     <Compile Include="Assets\Script\GUI\Pause\Pause.cs" />
      <Compile Include="Assets\Script\Camara\CameraFollow.cs" />
      <Compile Include="Assets\Script\GUI\Bars\SprintBar.cs" />
      <Compile Include="Assets\Script\Player\CheckWall.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\IceBar.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\FloorBar.cs" />
+     <Compile Include="Assets\Script\GUI\Bars\BombBar.cs" />
+     <Compile Include="Assets\Script\GUI\Score\ScoreNumber.cs" />
+     <Compile Include="Assets\Script\GUI\Lives\Lives.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

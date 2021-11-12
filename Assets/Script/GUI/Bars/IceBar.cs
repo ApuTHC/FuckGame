@@ -22,7 +22,7 @@ public class IceBar : MonoBehaviour
 		_ip = Mathf.Clamp (_ip - _amount, 0f, _maxIp);
 		float _relation = _ip/_maxIp;
 		_rt.sizeDelta = new Vector2 (_relation, _rt.sizeDelta.y);
-		float _posX = (112.3f * (_relation-1f))-704f;
+		float _posX = (76.1f * (_relation-1f))-1080f;
 		_rt.localPosition = new Vector3 (_posX, _rt.localPosition.y, _rt.localPosition.z);
 	}
 	public void Restart()

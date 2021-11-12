@@ -22,7 +22,7 @@ public class KillBar : MonoBehaviour
 		_kp = Mathf.Clamp (_kp - _amount, 0f, _maxKp);
 		float _relation = _kp/_maxKp;
 		_rt.sizeDelta = new Vector2 (_relation, _rt.sizeDelta.y);
-		float _posX = (112.3f * (_relation-1f))-704f;
+		float _posX = (115.5f * (_relation-1f))-1041f;
 		_rt.localPosition = new Vector3 (_posX, _rt.localPosition.y, _rt.localPosition.z);
 	}
 	public void Restart()

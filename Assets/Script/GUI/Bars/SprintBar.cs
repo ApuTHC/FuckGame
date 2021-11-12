@@ -22,7 +22,7 @@ public class SprintBar : MonoBehaviour
 		_sp = Mathf.Clamp (_sp - _amount, 0f, _maxSp);
 		float _relation = _sp/_maxSp;
 		_rt.sizeDelta = new Vector2 (_relation, _rt.sizeDelta.y);
-		float _posX = (112.3f * (_relation-1f))-704f;
+		float _posX = (76.1f * (_relation-1f))-1080f;
 		_rt.localPosition = new Vector3 (_posX, _rt.localPosition.y, _rt.localPosition.z);
 	}
 	public void Restart()
