@@ -37,20 +37,22 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\IceBar.cs" />
-     <Compile Include="Assets\Script\GUI\MainMenu\ControladorPortada.cs" />
-     <Compile Include="Assets\Script\GUI\GameOver\GameOver.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\FloorBar.cs" />
+     <Compile Include="Assets\Script\UI\Bars\KeyBar.cs" />
+     <Compile Include="Assets\Script\UI\Bars\IceBar.cs" />
+     <Compile Include="Assets\Script\UI\MainMenu\MainMenu.cs" />
+     <Compile Include="Assets\Script\UI\GameOver\GameOver.cs" />
+     <Compile Include="Assets\Script\UI\Lives\Lives.cs" />
+     <Compile Include="Assets\Script\UI\Bars\FloorBar.cs" />
+     <Compile Include="Assets\Script\UI\Bars\BombBar.cs" />
      <Compile Include="Assets\Script\Player\CheckGround.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\HelthBar.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\KillBar.cs" />
-     <Compile Include="Assets\Script\GUI\Pause\Pause.cs" />
+     <Compile Include="Assets\Script\UI\Bars\HelthBar.cs" />
+     <Compile Include="Assets\Script\UI\Score\ScoreNumber.cs" />
+     <Compile Include="Assets\Script\UI\Bars\KillBar.cs" />
+     <Compile Include="Assets\Script\UI\Pause\Pause.cs" />
      <Compile Include="Assets\Script\Camara\CameraFollow.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\SprintBar.cs" />
+     <Compile Include="Assets\Script\UI\Lives\Coins.cs" />
+     <Compile Include="Assets\Script\UI\Bars\SprintBar.cs" />
      <Compile Include="Assets\Script\Player\CheckWall.cs" />
-     <Compile Include="Assets\Script\GUI\Bars\BombBar.cs" />
-     <Compile Include="Assets\Script\GUI\Score\ScoreNumber.cs" />
-     <Compile Include="Assets\Script\GUI\Lives\Lives.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -716,6 +718,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
+      <Project>{0facd529-a8c9-8bf3-299a-af2986fbb015}</Project>
+      <Name>Unity.2D.Tilemap.Extras</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
+      <Project>{3bda5af7-346e-315b-092c-07c7fbdd1cc4}</Project>
+      <Name>Unity.2D.Tilemap.Extras.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

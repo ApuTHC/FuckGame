@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: BigChain_1
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 3f54aeaf67f94704e8416629f6eda39d, type: 3}
+  - {fileID: 21300000, guid: b0788cabc9446d241a6229f3eacfe780, type: 3}
+  - {fileID: 21300000, guid: ca25c8b6f29a00b41ad579040de388ce, type: 3}
+  - {fileID: 21300000, guid: 4312eec0e38f43a4592bd8e684cb2a61, type: 3}
+  - {fileID: 21300000, guid: f9bc054c8a1f7304d8bca899ebc56a23, type: 3}
+  - {fileID: 21300000, guid: 0e68477c1e5f8bf4580c274cda720be5, type: 3}
+  - {fileID: 21300000, guid: bae589daee89ea546ad097dbb6ed6fa2, type: 3}
+  - {fileID: 21300000, guid: b3c0cf14e23b1a84dbb2586862ec7c81, type: 3}
+  - {fileID: 21300000, guid: a1f8377cc95e09d47bdfc5389e2ec49e, type: 3}
+  - {fileID: 21300000, guid: 521352b2e29198d4eb581c15e738f976, type: 3}
+  m_MinSpeed: 15
+  m_MaxSpeed: 20
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

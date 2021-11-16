@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: PirateFlag
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 9e5c60a2660c6f3469d52cedfeac27b2, type: 3}
+  - {fileID: 21300000, guid: ae94e1cf16b105640bdddbc4f5c5fdc8, type: 3}
+  - {fileID: 21300000, guid: cf80169d3a43cec438d8b721d92d5f3f, type: 3}
+  - {fileID: 21300000, guid: 9148e71ba2bd01041bdbec62334b1780, type: 3}
+  - {fileID: 21300000, guid: 10f4ad59ffc8f154bb83b03908a1aace, type: 3}
+  - {fileID: 21300000, guid: 1f353887286d73f43a88e357cdd4d562, type: 3}
+  - {fileID: 21300000, guid: 1f15a65586c5d9045b884daaede2992a, type: 3}
+  - {fileID: 21300000, guid: 1c4fa66a183418e4ba2d614193ec07ee, type: 3}
+  - {fileID: 21300000, guid: d3a749ac6e7a31041bbe3eac7800fcb5, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 15
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

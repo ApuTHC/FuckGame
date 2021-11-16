@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: SmallChain_2
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: caf405be10cc90645af6d1bc5cb32d9d, type: 3}
+  - {fileID: 21300000, guid: 4a91f9fc36b81604781e5232b575d7f9, type: 3}
+  - {fileID: 21300000, guid: 0aa2b6da28b2b7442bafe97a03f534da, type: 3}
+  - {fileID: 21300000, guid: 8d64aa836b3b18a43a8476a46c0f5a39, type: 3}
+  - {fileID: 21300000, guid: 604836326c2e7bd4e9f67b78e84792aa, type: 3}
+  - {fileID: 21300000, guid: a472721463e95ad47bd58b315f2e9c47, type: 3}
+  - {fileID: 21300000, guid: 7da83416e1728184faddfcf458197275, type: 3}
+  - {fileID: 21300000, guid: c2f0f8b84ff314d45889d167e8f7fc83, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 15
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

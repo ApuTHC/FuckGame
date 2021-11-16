@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: WindowLight
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 1ad87705f534bee4b87a9f8d6db28fdd, type: 3}
+  - {fileID: 21300000, guid: c7b9e2ec148f36c47b1b4cadd4407b8f, type: 3}
+  - {fileID: 21300000, guid: d159b6c27a85ccd4d888d3b7193666cb, type: 3}
+  - {fileID: 21300000, guid: 68dc2049717c85448bbe2b54991ccf9b, type: 3}
+  m_MinSpeed: 15
+  m_MaxSpeed: 20
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
