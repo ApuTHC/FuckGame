@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 560698982}
   - component: {fileID: 560698984}
-  - component: {fileID: 5113901636199902975}
   - component: {fileID: 335452776}
   m_Layer: 8
   m_Name: Wall Collider
@@ -49,18 +48,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.014890671, y: -0.022259712}
   m_Size: {x: 0.4997139, y: 0.59809685}
   m_Direction: 0
---- !u!114 &5113901636199902975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560698981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65e1d0ea0b80744a8ac032f242c5fdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &335452776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,11 +70,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1977388299}
   - component: {fileID: 1977388301}
-  - component: {fileID: 5996974671464454106}
   - component: {fileID: 2104109573}
   m_Layer: 0
   m_Name: Ground Collider
-  m_TagString: Player
+  m_TagString: Player_Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,18 +108,6 @@ CircleCollider2D:
   m_Offset: {x: 0.0066432953, y: -0.29267502}
   serializedVersion: 2
   m_Radius: 0.20143938
---- !u!114 &5996974671464454106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977388298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc49b30ff757cd44b9999191e135aa40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2104109573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +131,7 @@ GameObject:
   - component: {fileID: 5397090050400593356}
   - component: {fileID: 4783399355192646396}
   - component: {fileID: 6229320888145310924}
+  - component: {fileID: 3596342470861387806}
   m_Layer: 8
   m_Name: NinjaFrog
   m_TagString: Player
@@ -218,6 +193,20 @@ MonoBehaviour:
   _maxSpeed: 35
   _grounded: 0
   _jumpPower: 5.5
+--- !u!114 &3596342470861387806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397090050400593353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704fd4c204c70f4488079c98282638c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chargingBar: {fileID: 8502790208236428826, guid: 2f83aa6599bbd8d46a2c229a3816b719, type: 3}
+  _bomb: {fileID: 4644006865948860696, guid: c3b5a421ae542554e85ee7f2d905b4c1, type: 3}
 --- !u!1 &6024990332600898287
 GameObject:
   m_ObjectHideFlags: 0

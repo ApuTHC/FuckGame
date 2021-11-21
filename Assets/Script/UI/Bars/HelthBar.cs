@@ -19,12 +19,12 @@ public class HelthBar : MonoBehaviour {
 		_rt = _healthBar.GetComponent<RectTransform>();
 	}
 
-	public void TakeDamage(float _amount)
+	public void ModifyHealth(float _amount)
 	{
-		_hp = Mathf.Clamp (_hp - _amount, 0f, _maxHp);
+		_hp = Mathf.Clamp (_hp + _amount, 0f, _maxHp);
 		float _relation = _hp/_maxHp;
 		_rt.sizeDelta = new Vector2 (_relation, _rt.sizeDelta.y);
-		float _posX = (162.63f * (_relation-1f))-544f;
+		float _posX = (162.63f * (_relation-1f))-991.8f;
 		_rt.localPosition = new Vector3 (_posX, _rt.localPosition.y, _rt.localPosition.z);
 		if (_hp == 0f) {
 			if (_gameover != null) {
@@ -35,12 +35,13 @@ public class HelthBar : MonoBehaviour {
 	public void Restart()
 	{
 		_hp = _maxHp;
-		_healthBar.transform.localScale = new Vector2 (1, 1);
+		ModifyHealth(0f);
 	}
 
 	public void SetHealth(float _healthBari)
 	{
 		_hp = _healthBari;
+		ModifyHealth(0f);
 	}
 
 	public float GetHealth()

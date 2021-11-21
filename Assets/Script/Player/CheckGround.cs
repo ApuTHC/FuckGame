@@ -28,4 +28,9 @@ public class CheckGround : MonoBehaviour
 			_player.SetGround(false);
 		}
 	}
+
+	public void BoxJump(Vector3 _boxPos)
+    {
+        _player.BoxJump(_boxPos);
+    }
 }

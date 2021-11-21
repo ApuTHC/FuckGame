@@ -35,4 +35,9 @@ public class CheckWall : MonoBehaviour
         }
     }
 
+    public void SetLiveScore(Vector2 _vector)
+    {
+        _player.SetLiveScore(_vector);
+    }
+
 }

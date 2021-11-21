@@ -5,34 +5,34 @@ using UnityEngine;
 public class TimedObjectDestroyer : MonoBehaviour
 {
     [SerializeField]
-    private float lifetime = 5.0f;
-    private float timeAlive = 0.0f;
+    private float _lifetime = 5.0f;
+    private float _timeAlive = 0.0f;
 
     [SerializeField]
-    private bool destroyChildrenOnDeath = false;
+    private bool _destroyChildrenOnDeath = false;
     void Update()
     {
-        if (timeAlive > lifetime)
+        if (_timeAlive > _lifetime)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            timeAlive += Time.deltaTime;
+            _timeAlive += Time.deltaTime;
         }
     }
 
     private void OnDestroy()
     {
-        if (destroyChildrenOnDeath)
+        if (_destroyChildrenOnDeath)
         {
-            int childCount = transform.childCount;
-            for (int i = 0; i < childCount; i++)
+            int _childCount = transform.childCount;
+            for (int i = 0; i < _childCount; i++)
             {
-                GameObject childObject = transform.GetChild(i).gameObject;
-                if (childObject != null)
+                GameObject _childObject = transform.GetChild(i).gameObject;
+                if (_childObject != null)
                 {
-                    Destroy(childObject);
+                    Destroy(_childObject);
                 }
             }
         }

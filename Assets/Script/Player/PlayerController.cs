@@ -22,12 +22,17 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb2d;
     private Animator _animator;
+    private GameObject _healthbar;
+    private GameObject _score;
+    private int _scoreNumber;
    
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<Animator>(); 
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _healthbar = GameObject.Find("HealthBar");
+        _score = GameObject.Find("ScoreNumber");
     }
 
     
@@ -96,6 +101,22 @@ public class PlayerController : MonoBehaviour
             _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             _jump = false;
         }
+    }
+    public void BoxJump(Vector3 _boxPos)
+    {
+        if (_boxPos.z == 1f)
+        {
+            _doubleJump = true;
+            _rb2d.velocity = Vector3.zero;
+            float sidey = Mathf.Sign(Mathf.Abs(transform.position.y) - Mathf.Abs(_boxPos.y));
+            _rb2d.AddForce(Vector2.up * sidey * _jumpPower, ForceMode2D.Impulse);
+        }
+    }
+    public void SetLiveScore(Vector2 _vector) 
+    {
+        _healthbar.SendMessage("ModifyHealth", _vector.x);
+        _scoreNumber+= Mathf.FloorToInt(_vector.y);
+        _score.SendMessage("SetScore", _scoreNumber);
     }
     public void SetWall(bool _walli)
     {

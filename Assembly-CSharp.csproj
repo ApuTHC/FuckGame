@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
      <Compile Include="Assets\Script\UI\Bars\KeyBar.cs" />
+     <Compile Include="Assets\Script\Items\Box\BreakBox.cs" />
      <Compile Include="Assets\Script\UI\Bars\IceBar.cs" />
      <Compile Include="Assets\Script\UI\MainMenu\MainMenu.cs" />
      <Compile Include="Assets\Script\UI\GameOver\GameOver.cs" />
@@ -45,18 +46,23 @@
      <Compile Include="Assets\Script\Traps\Cannon\BallController.cs" />
      <Compile Include="Assets\Script\UI\Bars\FloorBar.cs" />
      <Compile Include="Assets\Script\UI\Bars\BombBar.cs" />
+     <Compile Include="Assets\Script\Utility\TimedObjectDestroyer.cs" />
      <Compile Include="Assets\Script\Player\CheckGround.cs" />
+     <Compile Include="Assets\Script\Items\Bomb\ExplotionArea.cs" />
+     <Compile Include="Assets\Script\Items\Bomb\Bomb.cs" />
      <Compile Include="Assets\Script\UI\Bars\HelthBar.cs" />
      <Compile Include="Assets\Script\UI\MainMenu\MoveClouds.cs" />
+     <Compile Include="Assets\Script\Items\Collected\Collected.cs" />
      <Compile Include="Assets\Script\UI\Score\ScoreNumber.cs" />
      <Compile Include="Assets\Script\UI\Bars\KillBar.cs" />
      <Compile Include="Assets\Script\UI\Pause\Pause.cs" />
+     <Compile Include="Assets\Script\Items\Box\BoxHit.cs" />
      <Compile Include="Assets\Script\Traps\Cannon\CannonController.cs" />
      <Compile Include="Assets\Script\Camara\CameraFollow.cs" />
      <Compile Include="Assets\Script\UI\Lives\Coins.cs" />
      <Compile Include="Assets\Script\UI\Bars\SprintBar.cs" />
      <Compile Include="Assets\Script\Player\CheckWall.cs" />
-     <Compile Include="Assets\Script\Utility\TimedObjectDestroyer.cs" />
+     <Compile Include="Assets\Script\Player\ThrowBomb.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
