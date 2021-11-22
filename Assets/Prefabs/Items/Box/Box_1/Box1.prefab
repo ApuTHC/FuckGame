@@ -173,7 +173,7 @@ MonoBehaviour:
   fruit1: {fileID: 0}
   fruit2: {fileID: 0}
   fruit3: {fileID: 0}
-  breakUpLeft: {fileID: 5640364908144891600, guid: 6c78c618148227a4fb78d22c737283e3, type: 3}
-  breakUpRight: {fileID: 4956262954223205557, guid: 769828c5bd9e5414ba531cd1353a5e15, type: 3}
-  breakDownLeft: {fileID: 4052713655323394590, guid: 55c2af79ce9e43d498227748d854fb27, type: 3}
-  breakDownRight: {fileID: 669485590477441437, guid: 307ffd672a6a60e40a2f3346d5c56cc3, type: 3}
+  breakTopLeft: {fileID: 5640364908144891600, guid: 6c78c618148227a4fb78d22c737283e3, type: 3}
+  breakTopRight: {fileID: 4956262954223205557, guid: 769828c5bd9e5414ba531cd1353a5e15, type: 3}
+  breakBottomLeft: {fileID: 4052713655323394590, guid: 55c2af79ce9e43d498227748d854fb27, type: 3}
+  breakBottomRight: {fileID: 669485590477441437, guid: 307ffd672a6a60e40a2f3346d5c56cc3, type: 3}

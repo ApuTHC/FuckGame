@@ -115,5 +115,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffddb972c27bc14d9563a673da880ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 1.8
-  destroyChildrenOnDeath: 0
+  _lifetime: 1.5
+  _destroyChildrenOnDeath: 0

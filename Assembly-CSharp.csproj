@@ -60,9 +60,11 @@
      <Compile Include="Assets\Script\Traps\Cannon\CannonController.cs" />
      <Compile Include="Assets\Script\Camara\CameraFollow.cs" />
      <Compile Include="Assets\Script\UI\Lives\Coins.cs" />
+     <Compile Include="Assets\Script\Player\ThrowBomb.cs" />
      <Compile Include="Assets\Script\UI\Bars\SprintBar.cs" />
      <Compile Include="Assets\Script\Player\CheckWall.cs" />
-     <Compile Include="Assets\Script\Player\ThrowBomb.cs" />
+     <Compile Include="Assets\Script\Items\Chest\ChestController.cs" />
+     <Compile Include="Assets\Script\Items\Chest\PadlockController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

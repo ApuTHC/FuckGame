@@ -6,6 +6,9 @@ public class ExplotionArea : MonoBehaviour
 {
     private bool _isBoom = false;
     private bool _isDamage = false;
+
+    [SerializeField]
+    private float _damage = 33f;
     public void IsBoom()
     {
         _isBoom = true;
@@ -18,7 +21,7 @@ public class ExplotionArea : MonoBehaviour
 		{
 			if(_isBoom && !_isDamage)
             {
-                Vector2 vector = new Vector2(-33f, 100f);
+                Vector2 vector = new Vector2(-_damage, 100f);
                 col.gameObject.SendMessage("SetLiveScore", vector);
                 _isDamage = true;
             }

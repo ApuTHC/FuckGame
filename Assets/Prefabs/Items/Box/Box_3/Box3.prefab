@@ -169,11 +169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbd9e1077c00c343a9aa3b23dc8e16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 3
+  hits: 5
   fruit1: {fileID: 0}
   fruit2: {fileID: 0}
   fruit3: {fileID: 0}
-  breakUpLeft: {fileID: 5892122185769105399, guid: 48aa4ef372f0e224cb2779d4e779ed5a, type: 3}
-  breakUpRight: {fileID: 8379875080584993070, guid: 3ae373df20488b04b83f47053ac3e746, type: 3}
-  breakDownLeft: {fileID: 3428006013080389567, guid: 109a8e99a4804e844bedfa2e58ecbd17, type: 3}
-  breakDownRight: {fileID: 7697125897535371499, guid: af2a3a584a892ad43a23b081706e3ef2, type: 3}
+  breakTopLeft: {fileID: 5892122185769105399, guid: 48aa4ef372f0e224cb2779d4e779ed5a, type: 3}
+  breakTopRight: {fileID: 8379875080584993070, guid: 3ae373df20488b04b83f47053ac3e746, type: 3}
+  breakBottomLeft: {fileID: 3428006013080389567, guid: 109a8e99a4804e844bedfa2e58ecbd17, type: 3}
+  breakBottomRight: {fileID: 7697125897535371499, guid: af2a3a584a892ad43a23b081706e3ef2, type: 3}

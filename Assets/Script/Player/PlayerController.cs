@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float _jumpPower = 6.5f;
+
+    [SerializeField]
+    private bool _key = false;
     private bool _wall;
     private bool _wallJump;
     private bool _jump;
@@ -129,5 +132,15 @@ public class PlayerController : MonoBehaviour
     public void SetGround(bool _groundi)
     {
         _grounded=_groundi;
+    }
+
+    public bool GetKey()
+    {
+        return _key;
+    }
+
+    public void SetKey(bool _keyi)
+    {
+        _key = _keyi;
     }
 }
