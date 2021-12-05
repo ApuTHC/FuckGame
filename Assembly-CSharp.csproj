@@ -44,11 +44,13 @@
      <Compile Include="Assets\Script\UI\GameOver\GameOver.cs" />
      <Compile Include="Assets\Script\UI\Lives\Lives.cs" />
      <Compile Include="Assets\Script\Traps\Cannon\BallController.cs" />
+     <Compile Include="Assets\Script\Items\Chest\PadlockController.cs" />
      <Compile Include="Assets\Script\UI\Bars\FloorBar.cs" />
      <Compile Include="Assets\Script\UI\Bars\BombBar.cs" />
      <Compile Include="Assets\Script\Utility\TimedObjectDestroyer.cs" />
      <Compile Include="Assets\Script\Player\CheckGround.cs" />
      <Compile Include="Assets\Script\Items\Bomb\ExplotionArea.cs" />
+     <Compile Include="Assets\Script\Items\Chest\ChestController.cs" />
      <Compile Include="Assets\Script\Items\Bomb\Bomb.cs" />
      <Compile Include="Assets\Script\UI\Bars\HelthBar.cs" />
      <Compile Include="Assets\Script\UI\MainMenu\MoveClouds.cs" />
@@ -63,8 +65,9 @@
      <Compile Include="Assets\Script\Player\ThrowBomb.cs" />
      <Compile Include="Assets\Script\UI\Bars\SprintBar.cs" />
      <Compile Include="Assets\Script\Player\CheckWall.cs" />
-     <Compile Include="Assets\Script\Items\Chest\ChestController.cs" />
-     <Compile Include="Assets\Script\Items\Chest\PadlockController.cs" />
+     <Compile Include="Assets\Script\Items\Chest\KeyCollected.cs" />
+     <Compile Include="Assets\Script\Items\Potion\BluePotionCollected.cs" />
+     <Compile Include="Assets\Script\Items\Coins\GoldenCoin.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

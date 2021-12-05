@@ -40,7 +40,6 @@ public class Lives : MonoBehaviour
         _sprites[8] = _sprite8;
         _sprites[9] = _sprite9;
 
-        SetLives(3);
     }
 
     public void SetLives(int _lives)

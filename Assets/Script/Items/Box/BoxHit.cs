@@ -7,14 +7,23 @@ public class BoxHit : MonoBehaviour
     public GameObject _object1;
     public GameObject _object2;
     public GameObject _object3;
-    public GameObject breakTopLeft;
-    public GameObject breakTopRight;
-    public GameObject breakBottomLeft;
-    public GameObject breakBottomRight;
+    private GameObject[] _objects = new GameObject[3];
+    public GameObject _breakTopLeft;
+    public GameObject _breakTopRight;
+    public GameObject _breakBottomLeft;
+    public GameObject _breakBottomRight;
+    private GameObject[] _breakBox = new GameObject[4];
 
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _objects[0] = _object1;
+        _objects[1] = _object2;
+        _objects[2] = _object3;
+        _breakBox[0] = _breakTopLeft;
+        _breakBox[1] = _breakTopRight;
+        _breakBox[2] = _breakBottomLeft;
+        _breakBox[3] = _breakBottomRight;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -45,32 +54,62 @@ public class BoxHit : MonoBehaviour
     void Destroyer()
     {
         Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y, 0f);
-        GameObject _object1Object = Instantiate(_object1, corregirPos, Quaternion.identity);
-        GameObject _object2Object = Instantiate(_object2, corregirPos, Quaternion.identity);
-        GameObject _object3Object = Instantiate(_object3, corregirPos, Quaternion.identity);
-        _object1Object.GetComponent<Rigidbody2D>().velocity = new Vector3(3f, 4f, 0f);
-        _object2Object.GetComponent<Rigidbody2D>().velocity = new Vector3(-2f, 5f, 0f);
-        _object3Object.GetComponent<Rigidbody2D>().velocity = new Vector3(1f, 6f, 0f);
-        _object1Object.GetComponent<Rigidbody2D>().isKinematic = false;
-        _object2Object.GetComponent<Rigidbody2D>().isKinematic = false;
-        _object3Object.GetComponent<Rigidbody2D>().isKinematic = false;
-        _object1Object.GetComponent<CircleCollider2D>().isTrigger = false;
-        _object2Object.GetComponent<CircleCollider2D>().isTrigger = false;
-        _object3Object.GetComponent<CircleCollider2D>().isTrigger = false;
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject objects = Instantiate(_objects[i], corregirPos, Quaternion.identity);
+            var _speedX = 0f;
+            var _speedY = 0f;
+            if(i == 0)
+            {
+                _speedX =  Random.Range(2.5f, 4.5f);
+                _speedY =  Random.Range(3.5f, 5.5f);
+            }
+            if(i == 1)
+            {
+                _speedX =  Random.Range(0.5f, 1.5f);
+                _speedY =  Random.Range(5.5f, 7.5f);
+            }
+            if(i == 2)
+            {
+                _speedX =  Random.Range(-1.5f, -3.5f);
+                _speedY =  Random.Range(4.5f, 6.5f);
+            }
+            objects.GetComponent<Rigidbody2D>().velocity = new Vector3(_speedX, _speedY, 0f);
+            objects.GetComponent<Rigidbody2D>().isKinematic = false;
+            objects.GetComponent<CircleCollider2D>().isTrigger = false;
+        }
 
-        Vector3 corregirPosTopLeft = new Vector3(transform.position.x- 0.2f, transform.position.y+ 0.18f, 0f);
-        Vector3 corregirPosTopRight = new Vector3(transform.position.x+ 0.14f, transform.position.y+ 0.17f, 0f);
-        Vector3 corregirPosBottomLeft = new Vector3(transform.position.x- 0.17f, transform.position.y- 0.2f, 0f);
-        Vector3 corregirPosBottomRight = new Vector3(transform.position.x+ 0.21f, transform.position.y- 0.2f, 0f);
-        GameObject breakTopLeftObject = Instantiate(breakTopLeft, corregirPosTopLeft, Quaternion.identity);
-        GameObject breakTopRightObject = Instantiate(breakTopRight, corregirPosTopRight, Quaternion.identity);
-        GameObject breakBottomLeftObject = Instantiate(breakBottomLeft, corregirPosBottomLeft, Quaternion.identity);
-        GameObject breakBottomRightObject = Instantiate(breakBottomRight, corregirPosBottomRight, Quaternion.identity);
-        breakTopLeftObject.GetComponent<Rigidbody2D>().velocity = new Vector3(-3f, 4f, 0f);
-        breakTopRightObject.GetComponent<Rigidbody2D>().velocity = new Vector3(4f, 2f, 0f);
-        breakBottomLeftObject.GetComponent<Rigidbody2D>().velocity = new Vector3(-1f, -7f, 0f);
-        breakBottomRightObject.GetComponent<Rigidbody2D>().velocity = new Vector3(2f, -3f, 0f);
-
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 corregirPosBox = Vector3.zero;
+            var _speedX = 0f;
+            var _speedY = 0f;
+            if(i == 0)
+            {
+                corregirPosBox = new Vector3(transform.position.x- 0.2f, transform.position.y+ 0.18f, 0f);
+                _speedX =  Random.Range(-2.5f, -4.5f);
+                _speedY =  Random.Range(3.5f, 5.5f);
+            }
+            if(i == 1)
+            {
+                corregirPosBox = new Vector3(transform.position.x+ 0.14f, transform.position.y+ 0.17f, 0f);
+                _speedX =  Random.Range(3.5f, 5.5f);
+                _speedY =  Random.Range(1.5f, 3.5f);
+            }
+            if(i == 2)
+            {
+                corregirPosBox = new Vector3(transform.position.x- 0.17f, transform.position.y- 0.2f, 0f);
+                _speedX =  Random.Range(-0.5f, -2.5f);
+                _speedY =  Random.Range(-6.5f, -8.5f);
+            }
+            if(i == 3)
+            {
+                corregirPosBox = new Vector3(transform.position.x+ 0.21f, transform.position.y- 0.2f, 0f);
+                _speedX =  Random.Range(1.5f, 3.5f);
+                _speedY =  Random.Range(-2.5f, -4.5f);
+            }
+            GameObject breakBox = Instantiate(_breakBox[i], corregirPosBox, Quaternion.identity);
+            breakBox.GetComponent<Rigidbody2D>().velocity = new Vector3(_speedX, _speedY, 0f);
+        }
     }
-
 }

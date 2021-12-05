@@ -117,14 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbd9e1077c00c343a9aa3b23dc8e16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 3
-  fruit1: {fileID: 8414814625562625237, guid: 7933d7c477afb1849b9a70d679771f29, type: 3}
-  fruit2: {fileID: 8373979572138431094, guid: 11015c8b019070444bcfc2fe21e9ce8e, type: 3}
-  fruit3: {fileID: 5694538068818622133, guid: bf98103f6ceaec64fb07c629b3639bd4, type: 3}
-  breakTopLeft: {fileID: 5861858914799070077, guid: 61409f7eba1f1f543be4cfc19f970fb3, type: 3}
-  breakTopRight: {fileID: 393516326894610422, guid: 0dc3213dd4595344db97d93deb3d628a, type: 3}
-  breakBottomLeft: {fileID: 5861858914799070077, guid: 61409f7eba1f1f543be4cfc19f970fb3, type: 3}
-  breakBottomRight: {fileID: 9036681505180992413, guid: 289bfa82877290148bb3b33fe66b3817, type: 3}
+  hits: 2
+  _object1: {fileID: 0}
+  _object2: {fileID: 0}
+  _object3: {fileID: 0}
+  _breakTopLeft: {fileID: 5861858914799070077, guid: 61409f7eba1f1f543be4cfc19f970fb3, type: 3}
+  _breakTopRight: {fileID: 9036681505180992413, guid: 289bfa82877290148bb3b33fe66b3817, type: 3}
+  _breakBottomLeft: {fileID: 2107935503187490872, guid: e7e8dc168db27cc48a7fcfc2f7e7c92e, type: 3}
+  _breakBottomRight: {fileID: 393516326894610422, guid: 0dc3213dd4595344db97d93deb3d628a, type: 3}
 --- !u!61 &5990338039642813933
 BoxCollider2D:
   m_ObjectHideFlags: 0

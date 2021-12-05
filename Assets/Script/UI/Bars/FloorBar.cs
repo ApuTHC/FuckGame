@@ -6,37 +6,35 @@ using UnityEngine.UI;
 public class FloorBar : MonoBehaviour
 {
     public Image _floorBar;
-	private RectTransform _rt;
 
 	private float _fp, _maxFp = 100f;
 
 	// Use this for initialization
 	void Start () 
 	{
-		_fp = _maxFp;
-		_rt = _floorBar.GetComponent<RectTransform>();
+		_fp = 0;
+		ModifyBar(_fp);
 	}
 
-	public void TakeDamage(float _amount)
+	public void ModifyBar(float _amount)
 	{
 		_fp = Mathf.Clamp (_fp - _amount, 0f, _maxFp);
 		float _relation = _fp/_maxFp;
-		_rt.sizeDelta = new Vector2 (_relation, _rt.sizeDelta.y);
-		float _posX = (76.1f * (_relation-1f))-1080f;
-		_rt.localPosition = new Vector3 (_posX, _rt.localPosition.y, _rt.localPosition.z);
+		_floorBar.fillAmount=_relation;
 	}
 	public void Restart()
 	{
 		_fp = _maxFp;
-		_floorBar.transform.localScale = new Vector2 (1, 1);
+		ModifyBar(0f);
 	}
 
-	public void SetKillPoints(float _floorPointi)
+	public void SetFloor(float _floorBari)
 	{
-		_fp = _floorPointi;
+		_fp = _floorBari;
+		ModifyBar(0f);
 	}
 
-	public float GetKillPoints()
+	public float GetFloor()
 	{
 		return _fp;
 	}

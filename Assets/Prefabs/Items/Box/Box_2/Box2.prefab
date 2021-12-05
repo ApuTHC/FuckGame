@@ -169,11 +169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbd9e1077c00c343a9aa3b23dc8e16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 4
-  fruit1: {fileID: 0}
-  fruit2: {fileID: 0}
-  fruit3: {fileID: 0}
-  breakTopLeft: {fileID: 32465857399400713, guid: 5e95460d79abb6645b84f5fd48afe7a8, type: 3}
-  breakTopRight: {fileID: 2884995348805928128, guid: fcc3f11eab5d1754f9cfbc9a8c6023ce, type: 3}
-  breakBottomLeft: {fileID: 7411118996109226939, guid: a9d4f71e540a88f489088bdace157db2, type: 3}
-  breakBottomRight: {fileID: 6493018177446223154, guid: f3e8c90a9962cc44a8fd1fd7301a2180, type: 3}
+  hits: 2
+  _object1: {fileID: 0}
+  _object2: {fileID: 0}
+  _object3: {fileID: 0}
+  _breakTopLeft: {fileID: 32465857399400713, guid: 5e95460d79abb6645b84f5fd48afe7a8, type: 3}
+  _breakTopRight: {fileID: 2884995348805928128, guid: fcc3f11eab5d1754f9cfbc9a8c6023ce, type: 3}
+  _breakBottomLeft: {fileID: 7411118996109226939, guid: a9d4f71e540a88f489088bdace157db2, type: 3}
+  _breakBottomRight: {fileID: 6493018177446223154, guid: f3e8c90a9962cc44a8fd1fd7301a2180, type: 3}

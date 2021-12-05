@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     private GameObject _healthbar;
     private GameObject _score;
     private int _scoreNumber;
+    private KeyBar _keyBar;
+    private Lives _livesBar;
+    private int _lives = 3;
    
     void Start()
     {
@@ -36,6 +39,9 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _healthbar = GameObject.Find("HealthBar");
         _score = GameObject.Find("ScoreNumber");
+        _keyBar = FindObjectOfType<KeyBar>();
+        _livesBar = FindObjectOfType<Lives>();
+        _livesBar.SetLives(_lives);
     }
 
     
@@ -142,5 +148,12 @@ public class PlayerController : MonoBehaviour
     public void SetKey(bool _keyi)
     {
         _key = _keyi;
+        _keyBar.HideShowKey(_keyi);
+    }
+
+    public void LiveUp(int livi)
+    {
+        _lives += livi;
+        _livesBar.SetLives(_lives);
     }
 }

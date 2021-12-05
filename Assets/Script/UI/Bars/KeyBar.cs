@@ -7,10 +7,13 @@ public class KeyBar : MonoBehaviour
 {
     public Image _key;
 
+    private PlayerController _player;
+
     
     void Start()
     {
-        HideShowKey(false);
+        _player = FindObjectOfType<PlayerController>();
+        HideShowKey(_player.GetKey());
     }
 
     public void HideShowKey(bool _keyi)

@@ -6,37 +6,35 @@ using UnityEngine.UI;
 public class IceBar : MonoBehaviour
 {
     public Image _iceBar;
-	private RectTransform _rt;
 
 	private float _ip, _maxIp = 100f;
 
 	// Use this for initialization
 	void Start () 
 	{
-		_ip = _maxIp;
-		_rt = _iceBar.GetComponent<RectTransform>();
+		_ip = 0;
+		ModifyBar(_ip);
 	}
 
-	public void TakeDamage(float _amount)
+	public void ModifyBar(float _amount)
 	{
 		_ip = Mathf.Clamp (_ip - _amount, 0f, _maxIp);
 		float _relation = _ip/_maxIp;
-		_rt.sizeDelta = new Vector2 (_relation, _rt.sizeDelta.y);
-		float _posX = (76.1f * (_relation-1f))-1080f;
-		_rt.localPosition = new Vector3 (_posX, _rt.localPosition.y, _rt.localPosition.z);
+		_iceBar.fillAmount=_relation;
 	}
 	public void Restart()
 	{
 		_ip = _maxIp;
-		_iceBar.transform.localScale = new Vector2 (1, 1);
+		ModifyBar(0f);
 	}
 
-	public void SetKillPoints(float _iceBari)
+	public void SetIce(float _iceBari)
 	{
 		_ip = _iceBari;
+		ModifyBar(0f);
 	}
 
-	public float GetKillPoints()
+	public float GetIce()
 	{
 		return _ip;
 	}
