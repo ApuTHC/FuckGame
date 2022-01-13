@@ -51,7 +51,6 @@ public class Lives : MonoBehaviour
         _lives -= _nums[1] * 10;
         _nums[2] = (_lives % 1000) / 100;
         _lives -= _nums[2] * 100;
-
         for (int i = 0; i < 3; i++)
         {
             _numbers[i].sprite = _sprites[_nums[i]];

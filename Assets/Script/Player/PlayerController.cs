@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb2d;
     private Animator _animator;
     private GameObject _healthbar;
+    private KillBar _killbar;
     private GameObject _score;
     private int _scoreNumber;
     private KeyBar _keyBar;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponentInChildren<Animator>(); 
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _healthbar = GameObject.Find("HealthBar");
+        _killbar = FindObjectOfType<KillBar>();
         _score = GameObject.Find("ScoreNumber");
         _keyBar = FindObjectOfType<KeyBar>();
         _livesBar = FindObjectOfType<Lives>();
@@ -121,11 +123,28 @@ public class PlayerController : MonoBehaviour
             _rb2d.AddForce(Vector2.up * sidey * _jumpPower, ForceMode2D.Impulse);
         }
     }
-    public void SetLiveScore(Vector2 _vector) 
+    public void SetLiveScore(Vector2 vector) 
     {
-        _healthbar.SendMessage("ModifyHealth", _vector.x);
-        _scoreNumber+= Mathf.FloorToInt(_vector.y);
+        _scoreNumber+= Mathf.FloorToInt(vector.y);
         _score.SendMessage("SetScore", _scoreNumber);
+        
+        if (vector.x<0)
+        {
+            float kp = _killbar.GetKill();
+            if ((kp+vector.x)<0)
+            {
+                _killbar.ModifyBar(vector.x);
+                _healthbar.SendMessage("ModifyHealth", vector.x+kp);
+            }
+            else
+            {
+                _killbar.ModifyBar(vector.x);
+            }
+        }
+        else
+        {
+            _healthbar.SendMessage("ModifyHealth", vector.x);
+        }
     }
     public void SetWall(bool _walli)
     {
@@ -143,6 +162,10 @@ public class PlayerController : MonoBehaviour
     public bool GetKey()
     {
         return _key;
+    }
+    public int GetScore()
+    {
+        return _scoreNumber;
     }
 
     public void SetKey(bool _keyi)

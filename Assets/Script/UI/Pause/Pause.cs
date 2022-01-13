@@ -23,7 +23,7 @@ public class Pause : MonoBehaviour {
 
 	public void PlayPause()
 	{
-		if (_gameover.activa == false) 
+		if (_gameover._activa == false) 
 		{
 			_active = !_active;
 			_canvas.enabled = _active;

@@ -18,7 +18,7 @@ public class KillBar : MonoBehaviour
 
 	public void ModifyBar(float _amount)
 	{
-		_kp = Mathf.Clamp (_kp - _amount, 0f, _maxKp);
+		_kp = Mathf.Clamp (_kp + _amount, 0f, _maxKp);
 		float _relation = _kp/_maxKp;
 		_killBar.fillAmount=_relation;
 	}
