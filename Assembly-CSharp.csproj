@@ -39,6 +39,7 @@
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
      <Compile Include="Assets\Script\UI\Bars\KeyBar.cs" />
      <Compile Include="Assets\Script\Items\Box\BreakBox.cs" />
+     <Compile Include="Assets\Script\Items\Potion\GreenPotionCollected.cs" />
      <Compile Include="Assets\Script\UI\Bars\IceBar.cs" />
      <Compile Include="Assets\Script\UI\MainMenu\MainMenu.cs" />
      <Compile Include="Assets\Script\UI\GameOver\GameOver.cs" />
@@ -69,7 +70,7 @@
      <Compile Include="Assets\Script\UI\Bars\SprintBar.cs" />
      <Compile Include="Assets\Script\Player\CheckWall.cs" />
      <Compile Include="Assets\Script\Items\Potion\BluePotionCollected.cs" />
-     <Compile Include="Assets\Script\Items\Potion\GreenPotionCollected.cs" />
+     <Compile Include="Assets\Script\Items\Coins\SilverCoin.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -193,6 +193,11 @@ MonoBehaviour:
   _maxSpeed: 35
   _grounded: 0
   _jumpPower: 5.5
+  _key: 0
+  _jumpParticles: {fileID: 7244496912854819445, guid: 20396093a386c1940944f58e25e43b04, type: 3}
+  _jumpParticles1: {fileID: 3324875733046132629, guid: bb24927ed63f169409a33b9af27a673e, type: 3}
+  _fallParticles: {fileID: 6468691174848979131, guid: e899fdcbf4f9c9540bee5963f185b01c, type: 3}
+  _runParticles: {fileID: 5920445711097872113, guid: a1bcd7af5e283394293a445f774cb7cb, type: 3}
 --- !u!114 &3596342470861387806
 MonoBehaviour:
   m_ObjectHideFlags: 0

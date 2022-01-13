@@ -25,25 +25,39 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb2d;
     private Animator _animator;
-    private GameObject _healthbar;
+    private HelthBar _healthbar;
     private KillBar _killbar;
-    private GameObject _score;
-    private int _scoreNumber;
+    private ScoreNumber _scoreNumber;
+    private int _score=0;
     private KeyBar _keyBar;
     private Lives _livesBar;
+    private Coins _coinsBar;
     private int _lives = 3;
+    private int _coins = 0;
+    public GameObject _jumpParticles;
+    public GameObject _jumpParticles1;
+    public GameObject _fallParticles;
+    private bool _checkFall = false;
+    public GameObject _runParticles;
+    private bool _checkRun = true;
+    private bool _auxRun = true;
    
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<Animator>(); 
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _healthbar = GameObject.Find("HealthBar");
+
+        _healthbar = FindObjectOfType<HelthBar>();
         _killbar = FindObjectOfType<KillBar>();
-        _score = GameObject.Find("ScoreNumber");
         _keyBar = FindObjectOfType<KeyBar>();
+        _scoreNumber = FindObjectOfType<ScoreNumber>();
         _livesBar = FindObjectOfType<Lives>();
+        _coinsBar = FindObjectOfType<Coins>();
+        
+        _scoreNumber.SetScore(_score);
         _livesBar.SetLives(_lives);
+        _coinsBar.SetCoins(_coins);
     }
 
     
@@ -54,8 +68,16 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("Grounded", _grounded);
         _animator.SetBool("Wall", _wall);
 
+        if (!_grounded)
+        {
+            _checkFall=true;
+        }
         if (_grounded)
         {
+            if (_checkFall)
+            {
+                FallParticles();
+            }
             _doubleJump = true;
             _wall = false;
             _wallJump = false;
@@ -94,24 +116,74 @@ public class PlayerController : MonoBehaviour
 
         if (_h > 0.1f)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);    
+            transform.localScale = new Vector3(1f, 1f, 1f);   
+            _checkRun = true; 
+            if (_grounded && _auxRun)
+            {
+                _auxRun = false;
+                RunParticles();
+            }
         }
 
         if (_h < -0.1f)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            _checkRun = false; 
+            if (_grounded && _auxRun)
+            {
+                _auxRun = false;
+                RunParticles();
+            }
         }
 
         if (_jump)
         {
+            int aux=0;
+
             if (!_grounded)
             {
+                aux=1;
                 _animator.SetTrigger("DoubleJump");
             }
             _rb2d.velocity = new Vector2(_rb2d.velocity.x, 0);
             _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+            JumpParticles(aux);
             _jump = false;
         }
+    }
+    public void JumpParticles(int aux){
+        Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y-0.2f, 0f);
+        if (aux==1)
+        {
+            GameObject objects = Instantiate(_jumpParticles, corregirPos, Quaternion.identity);
+        }
+        else
+        {
+            GameObject objects = Instantiate(_jumpParticles1, corregirPos, Quaternion.identity);
+        }
+    }
+    public void FallParticles(){
+        _checkFall=false;
+        Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y-0.2f, 0f);
+        GameObject objects = Instantiate(_fallParticles, corregirPos, Quaternion.identity);
+    }
+    public void RunParticles(){
+        Vector3 corregirPos;
+        if (_checkRun)
+        {
+            _runParticles.transform.localScale = new Vector3(1f, 1f, 1f);
+            corregirPos = new Vector3( transform.position.x-0.1f, transform.position.y-0.17f, 0f);
+        }
+        else
+        {
+            _runParticles.transform.localScale = new Vector3(-1f, 1f, 1f);
+            corregirPos = new Vector3( transform.position.x+0.1f, transform.position.y-0.17f, 0f);
+        }
+        GameObject objects = Instantiate(_runParticles, corregirPos, Quaternion.identity);
+        Invoke("RunDelay", 0.2f);
+    }
+    private void RunDelay(){
+        _auxRun=true;
     }
     public void BoxJump(Vector3 _boxPos)
     {
@@ -121,12 +193,13 @@ public class PlayerController : MonoBehaviour
             _rb2d.velocity = Vector3.zero;
             float sidey = Mathf.Sign(Mathf.Abs(transform.position.y) - Mathf.Abs(_boxPos.y));
             _rb2d.AddForce(Vector2.up * sidey * _jumpPower, ForceMode2D.Impulse);
+            JumpParticles(0);
         }
     }
     public void SetLiveScore(Vector2 vector) 
     {
-        _scoreNumber+= Mathf.FloorToInt(vector.y);
-        _score.SendMessage("SetScore", _scoreNumber);
+        _score+= Mathf.FloorToInt(vector.y);
+        _scoreNumber.SetScore(_score);
         
         if (vector.x<0)
         {
@@ -134,7 +207,7 @@ public class PlayerController : MonoBehaviour
             if ((kp+vector.x)<0)
             {
                 _killbar.ModifyBar(vector.x);
-                _healthbar.SendMessage("ModifyHealth", vector.x+kp);
+                _healthbar.ModifyHealth(vector.x+kp);
             }
             else
             {
@@ -143,7 +216,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _healthbar.SendMessage("ModifyHealth", vector.x);
+            _healthbar.ModifyHealth(vector.x);
         }
     }
     public void SetWall(bool _walli)
@@ -165,7 +238,7 @@ public class PlayerController : MonoBehaviour
     }
     public int GetScore()
     {
-        return _scoreNumber;
+        return _score;
     }
 
     public void SetKey(bool _keyi)
@@ -178,5 +251,15 @@ public class PlayerController : MonoBehaviour
     {
         _lives += livi;
         _livesBar.SetLives(_lives);
+    }
+    public void CoinUp(int coini)
+    {
+        _coins += coini;
+        if(_coins>=100)
+        {
+            LiveUp(1);
+            _coins=0;
+        }
+        _coinsBar.SetCoins(_coins);
     }
 }
