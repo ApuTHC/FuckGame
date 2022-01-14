@@ -17,14 +17,14 @@ public class ThrowBomb : MonoBehaviour
         {
             _timeAlive += Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             Vector3 _shootPos = new Vector3( transform.position.x + (0.5f * transform.localScale.x), transform.position.y + 0.5f, 0f);
             _chargingBarObject = Instantiate(_chargingBar, _shootPos, Quaternion.identity);
             _chargingBarObject.transform.parent = this.transform;
             _pulseA = true;
         }
-        if (Input.GetKeyUp(KeyCode.B))
+        if (Input.GetKeyUp(KeyCode.V))
         {
             _chargingBarObject.GetComponent<Animator>().SetBool("isClosing", true);
             Destroy(_chargingBarObject, 0.25f);

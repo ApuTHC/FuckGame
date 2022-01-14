@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb2d;
+    private Animator _animator;
+    // Player
     [SerializeField]
     private float _speed = 2f;
+    private float _realSpeed;
 
     [SerializeField]
     private float _maxSpeed = 3f;
@@ -15,30 +20,40 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float _jumpPower = 6.5f;
-
-    [SerializeField]
-    private bool _key = false;
     private bool _wall;
     private bool _wallJump;
     private bool _jump;
     private bool _doubleJump;
-    private SpriteRenderer _spriteRenderer;
-    private Rigidbody2D _rb2d;
-    private Animator _animator;
+
+    // Bars
     private HelthBar _healthbar;
     private KillBar _killbar;
-    private ScoreNumber _scoreNumber;
-    private int _score=0;
     private KeyBar _keyBar;
+    private SprintBar _sprintBar;
+    private FloorBar _floorBar;
+    public GameObject _floor ;
+    private bool _flooraux = false;
+    private bool _key = false;
+    private bool _sprint = false;
+
+    [SerializeField]
+    private float _sprintValue = 2f;
+    private bool _sprintAux = false;
+
+    // ScoreNumber,Lives & Coins
+    private ScoreNumber _scoreNumber;
     private Lives _livesBar;
     private Coins _coinsBar;
+    private int _score=0;
     private int _lives = 3;
     private int _coins = 0;
+
+    // Particles
     public GameObject _jumpParticles;
     public GameObject _jumpParticles1;
     public GameObject _fallParticles;
-    private bool _checkFall = false;
     public GameObject _runParticles;
+    private bool _checkFall = false;
     private bool _checkRun = true;
     private bool _auxRun = true;
    
@@ -51,6 +66,8 @@ public class PlayerController : MonoBehaviour
         _healthbar = FindObjectOfType<HelthBar>();
         _killbar = FindObjectOfType<KillBar>();
         _keyBar = FindObjectOfType<KeyBar>();
+        _sprintBar = FindObjectOfType<SprintBar>();
+        _floorBar = FindObjectOfType<FloorBar>();
         _scoreNumber = FindObjectOfType<ScoreNumber>();
         _livesBar = FindObjectOfType<Lives>();
         _coinsBar = FindObjectOfType<Coins>();
@@ -58,6 +75,8 @@ public class PlayerController : MonoBehaviour
         _scoreNumber.SetScore(_score);
         _livesBar.SetLives(_lives);
         _coinsBar.SetCoins(_coins);
+
+        _realSpeed = _speed;
     }
 
     
@@ -102,6 +121,77 @@ public class PlayerController : MonoBehaviour
                 _doubleJump = false;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (!_grounded && !_flooraux)
+            {
+                float _h = Input.GetAxis("Horizontal");
+                float aux = 1f;
+                if (_h<0.1f)
+                {
+                    aux = -1f; 
+                }
+                Vector3 pos = new Vector3(transform.position.x+aux , transform.position.y - 1.5f , 1f);
+                if(_floorBar.Floor())
+                {
+			        Instantiate(_floor , pos , Quaternion.identity);
+                    _flooraux = true;
+                    Invoke("FloorIn" , 2f);
+                }
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            _sprintAux = true;
+            _sprint=false;
+            Invoke("Sprint" , 0.08f);
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            if (_sprintAux)
+            {
+                _sprintAux = false;
+                Invoke("Sprint" , 0.08f);
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.X))
+        {
+            if (!_sprint)
+            {
+                _speed = _realSpeed;
+                _sprint=true;
+            }
+            Invoke("Run" , 0.1f); 
+            _sprintAux = true;
+        }
+        
+    }
+
+    public void FloorIn()
+    {
+        _flooraux = false;
+    }
+
+    public void Sprint()
+    {
+        if(_sprintBar.Sprint())
+        {
+            _speed = _realSpeed * _sprintValue;
+            _sprintBar.IsSprint(true);
+            _sprintAux = true;
+        }
+        else
+        {
+            _speed = _realSpeed;
+            _sprint=true;
+        }
+    }
+    public void Run()
+    {
+        _sprintBar.IsSprint(false);
     }
 
      void FixedUpdate()
@@ -151,8 +241,9 @@ public class PlayerController : MonoBehaviour
             _jump = false;
         }
     }
+    
     public void JumpParticles(int aux){
-        Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y-0.2f, 0f);
+        Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y-0.17f, 0f);
         if (aux==1)
         {
             GameObject objects = Instantiate(_jumpParticles, corregirPos, Quaternion.identity);
@@ -164,7 +255,7 @@ public class PlayerController : MonoBehaviour
     }
     public void FallParticles(){
         _checkFall=false;
-        Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y-0.2f, 0f);
+        Vector3 corregirPos = new Vector3( transform.position.x, transform.position.y-0.17f, 0f);
         GameObject objects = Instantiate(_fallParticles, corregirPos, Quaternion.identity);
     }
     public void RunParticles(){

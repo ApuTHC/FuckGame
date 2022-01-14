@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637725021665500539
-    m_Hash: 1003665177
+      ticks: 637777293185054876
+    m_Hash: 1197561154
   m_LockFileStatus:
     m_FilePath: D:/Daniel/Unity/FuckGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637719926521536878
-    m_Hash: 3693718261
+      ticks: 637777293185277156
+    m_Hash: 3466310726
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -81,6 +81,7 @@ m_PackageAssets:
         - 3.2.11
         - 3.2.13
         - 3.2.14
+        - 3.2.15
         - 4.0.0
         - 4.0.1
         - 4.1.0
@@ -102,6 +103,7 @@ m_PackageAssets:
         - 5.0.7
         - 5.0.8
         - 5.0.9
+        - 5.0.10
         - 6.0.0-pre.1
         - 6.0.0-pre.2
         - 6.0.1
@@ -114,13 +116,16 @@ m_PackageAssets:
         - 7.0.0
         - 7.0.1
         - 7.0.2
+        - 7.0.3
         - 8.0.0-pre.3
+        - 8.0.0-pre.4
         compatible:
         - 5.0.6
         - 5.0.7
         - 5.0.8
         - 5.0.9
-        verified: 5.0.9
+        - 5.0.10
+        verified: 5.0.10
       dependencies:
       - name: com.unity.2d.common
         version: 4.0.3
@@ -307,6 +312,7 @@ m_PackageAssets:
         - 4.1.0
         - 4.1.1
         - 4.1.2
+        - 4.1.3
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.1
@@ -318,12 +324,15 @@ m_PackageAssets:
         - 6.0.0-pre.4
         - 6.0.0
         - 6.0.1
+        - 6.0.2
         - 7.0.0-pre.3
+        - 7.0.0-pre.4
         compatible:
         - 4.1.0
         - 4.1.1
         - 4.1.2
-        verified: 4.1.2
+        - 4.1.3
+        verified: 4.1.3
       dependencies:
       - name: com.unity.2d.common
         version: 4.0.3
@@ -481,6 +490,7 @@ m_PackageAssets:
         - 3.0.15
         - 3.0.16
         - 3.0.17
+        - 3.0.18
         - 4.0.0
         - 4.0.1
         - 4.0.2
@@ -500,6 +510,8 @@ m_PackageAssets:
         - 5.1.3
         - 5.1.4
         - 5.1.5
+        - 5.1.6
+        - 5.1.7
         - 6.0.0-pre.1
         - 6.0.0-pre.2
         - 6.0.0
@@ -511,10 +523,13 @@ m_PackageAssets:
         - 7.0.2
         - 7.0.3
         - 8.0.0-pre.4
+        - 8.0.0-pre.5
         compatible:
         - 5.1.4
         - 5.1.5
-        verified: 5.1.5
+        - 5.1.6
+        - 5.1.7
+        verified: 5.1.7
       dependencies:
       - name: com.unity.mathematics
         version: 1.1.0
@@ -673,7 +688,11 @@ m_PackageAssets:
         - 1.12.5
         - 1.13.5
         - 1.14.1
+        - 1.14.4
+        - 1.14.7
         - 1.15.1
+        - 1.15.4
+        - 1.15.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -689,7 +708,11 @@ m_PackageAssets:
         - 1.12.5
         - 1.13.5
         - 1.14.1
+        - 1.14.4
+        - 1.14.7
         - 1.15.1
+        - 1.15.4
+        - 1.15.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -784,6 +807,7 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
+        - 3.0.9
         compatible:
         - 1.0.2
         - 1.0.6
@@ -810,6 +834,7 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
+        - 3.0.9
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -933,12 +958,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
         revision: 680e06d94ffca728223ae2cb14bb919cd354e2c1
         path: 
-    - packageId: com.unity.ide.vscode@1.2.3
+    - packageId: com.unity.ide.vscode@1.2.4
       testable: 0
       isDirectDependency: 1
-      version: 1.2.3
+      version: 1.2.4
       source: 1
-      resolvedPath: D:\Daniel\Unity\FuckGame\Library\PackageCache\com.unity.ide.vscode@1.2.3
+      resolvedPath: D:\Daniel\Unity\FuckGame\Library\PackageCache\com.unity.ide.vscode@1.2.4
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -996,13 +1021,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637394922300000000
+      datePublishedTicks: 637660806170000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
-        url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
-        revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
+        url: git+https://github.com/Unity-Technologies/com.unity.ide.vscode.git
+        revision: 1f4f605d5c988cb610c372b5c5216c46cc8f5d30
         path: 
     - packageId: com.unity.test-framework@1.1.29
       testable: 0
@@ -3400,6 +3425,7 @@ m_PackageAssets:
         - 4.0.1
         - 4.0.2
         - 4.0.3
+        - 4.0.4
         - 5.0.0-pre.1
         - 5.0.0-pre.2
         - 5.0.0
@@ -3408,10 +3434,13 @@ m_PackageAssets:
         - 6.0.0-pre.4
         - 6.0.0
         - 6.0.1
+        - 6.0.2
         - 7.0.0-pre.3
+        - 7.0.0-pre.4
         compatible:
         - 4.0.3
-        verified: 4.0.3
+        - 4.0.4
+        verified: 4.0.4
       dependencies:
       - name: com.unity.2d.sprite
         version: 1.0.0

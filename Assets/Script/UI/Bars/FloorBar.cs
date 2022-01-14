@@ -38,4 +38,17 @@ public class FloorBar : MonoBehaviour
 	{
 		return _fp;
 	}
+
+	public bool Floor()
+	{
+		bool aux = false;
+
+		if (_fp>=30)
+		{
+			ModifyBar(34f);
+			aux =true;
+		}
+
+		return aux;
+	}
 }
