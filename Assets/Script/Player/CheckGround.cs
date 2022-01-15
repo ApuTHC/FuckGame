@@ -33,4 +33,14 @@ public class CheckGround : MonoBehaviour
     {
         _player.BoxJump(_boxPos);
     }
+
+	public void Impulse(Vector2 vector)
+	{
+		_player.Impulse(vector);
+	}
+
+	public void EnemyKnockBack(Vector3 enemyPos)
+	{
+		_player.EnemyKnockBack(enemyPos);
+	}
 }

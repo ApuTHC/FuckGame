@@ -40,4 +40,9 @@ public class CheckWall : MonoBehaviour
         _player.SetLiveScore(_vector);
     }
 
+    public void EnemyKnockBack(Vector3 enemyPos)
+	{
+		_player.EnemyKnockBack(enemyPos);
+	}
+
 }

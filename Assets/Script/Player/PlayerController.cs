@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Player
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb2d;
     private Animator _animator;
+
     // Player
     [SerializeField]
     private float _speed = 2f;
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private bool _jump;
     private bool _doubleJump;
     float _h = 0f;
+
+    bool _pain = false;
+    
 
     // Bars
     private HelthBar _healthbar;
@@ -220,10 +225,16 @@ public class PlayerController : MonoBehaviour
      void FixedUpdate()
     {
         Vector3 _fixedVelocity = _rb2d.velocity;
-        _fixedVelocity.x *= 0.75f;
-        _rb2d.velocity = _fixedVelocity;
+        if(!_pain)
+        {
+            _fixedVelocity.x *= 0.75f;
+        }
         _h = Input.GetAxis("Horizontal");
-        _rb2d.AddForce(Vector2.right * _speed * _h);
+        _rb2d.velocity = _fixedVelocity;
+        if(!_pain)
+        {
+            _rb2d.AddForce(Vector2.right * _speed * _h);
+        }
         float _limitedSpeed = Mathf.Clamp(_rb2d.velocity.x, -_maxSpeed, _maxSpeed);
         _rb2d.velocity = new Vector2(_limitedSpeed, _rb2d.velocity.y);
 
@@ -249,7 +260,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (_jump)
+        if (_jump && !_pain)
         {
             int aux=0;
 
@@ -376,4 +387,34 @@ public class PlayerController : MonoBehaviour
         }
         _coinsBar.SetCoins(_coins);
     }
+
+    public void Impulse(Vector2 vector)
+    {
+        if (vector.x == 0 || vector.y != 0)
+        {
+            JumpParticles(1);
+        }
+        _rb2d.velocity = new Vector3(vector.x, vector.y, 0f);
+    }
+
+    public void EnemyKnockBack(Vector3 enemyPos)
+    {
+        Vector2 aux = new Vector2(enemyPos.z , 10f);
+        SetLiveScore(aux);
+        _pain = true;
+        float sidey = Mathf.Sign(Mathf.Abs(transform.position.y) - Mathf.Abs(enemyPos.y));
+        float sidex = Mathf.Sign(Mathf.Abs(enemyPos.x) - Mathf.Abs(transform.position.x));
+        _rb2d.AddForce(Vector2.up * sidey * _jumpPower*0.6f, ForceMode2D.Impulse);
+        _rb2d.AddForce(Vector2.left * sidex * _jumpPower*0.6f, ForceMode2D.Impulse);       
+        Color color = new Color(143 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+        _spriteRenderer.color = color;
+        Invoke("NoPain", 0.7f);
+    }
+
+    private void NoPain()
+    {
+        _spriteRenderer.color = Color.white;
+        _pain = false;
+    }
+
 }
