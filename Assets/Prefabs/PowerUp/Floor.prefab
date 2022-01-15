@@ -57,7 +57,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7747870710166932595}
   - component: {fileID: 7747870710166932594}
-  - component: {fileID: 7299185330119747313}
+  - component: {fileID: 3367103962826517066}
+  - component: {fileID: 3668698125219515550}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -131,8 +132,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7299185330119747313
-PolygonCollider2D:
+--- !u!70 &3367103962826517066
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,11 +141,27 @@ PolygonCollider2D:
   m_GameObject: {fileID: 7747870710166932592}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d6882c58570e0fa4ba0d5ccc859ad5c6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0000003072197, y: 0.32714543}
+  m_Size: {x: 0.9648251, y: 0.3035032}
+  m_Direction: 1
+--- !u!61 &3668698125219515550
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747870710166932592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: d6882c58570e0fa4ba0d5ccc859ad5c6, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000011920929, y: 0.029900432}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -154,27 +171,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.46903777, y: 0.39448476}
-      - {x: 0.46762705, y: 0.40151083}
-      - {x: 0.46671033, y: 0.40514362}
-      - {x: 0.46656013, y: 0.41284728}
-      - {x: 0.46675158, y: 0.41766024}
-      - {x: 0.4645698, y: 0.4258839}
-      - {x: 0.45679712, y: 0.45285833}
-      - {x: 0.4290061, y: 0.47240615}
-      - {x: -0.3649125, y: 0.4724419}
-      - {x: -0.40394115, y: 0.4724425}
-      - {x: -0.43175387, y: 0.47000396}
-      - {x: -0.45066547, y: 0.45023096}
-      - {x: -0.46528482, y: 0.3984605}
-      - {x: -0.4678371, y: 0.3143103}
-      - {x: -0.45966244, y: -0.10814959}
-      - {x: -0.42832255, y: -0.26207238}
-      - {x: -0.13938546, y: -0.36234343}
-      - {x: 0.13011909, y: -0.2500075}
-      - {x: 0.14659572, y: -0.20996547}
-      - {x: 0.32545352, y: -0.25327003}
-      - {x: 0.46120048, y: -0.25979984}
-      - {x: 0.4681337, y: 0.37438488}
+  serializedVersion: 2
+  m_Size: {x: 0.9226105, y: 0.53918195}
+  m_EdgeRadius: 0

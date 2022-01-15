@@ -38,4 +38,17 @@ public class IceBar : MonoBehaviour
 	{
 		return _ip;
 	}
+
+	public bool Ice()
+	{
+		bool aux = false;
+
+		if (_ip>=5)
+		{
+			ModifyBar(5f);
+			aux =true;
+		}
+
+		return aux;
+	}
 }

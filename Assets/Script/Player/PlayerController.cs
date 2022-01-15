@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool _wallJump;
     private bool _jump;
     private bool _doubleJump;
+    float _h = 0f;
 
     // Bars
     private HelthBar _healthbar;
@@ -31,14 +32,17 @@ public class PlayerController : MonoBehaviour
     private KeyBar _keyBar;
     private SprintBar _sprintBar;
     private FloorBar _floorBar;
-    public GameObject _floor ;
-    private bool _flooraux = false;
+    private IceBar _iceBar;
+    public GameObject _floor;
+    public GameObject _ice;
     private bool _key = false;
-    private bool _sprint = false;
 
     [SerializeField]
     private float _sprintValue = 2f;
     private bool _sprintAux = false;
+    private bool _flooraux = false;
+    private bool _iceaux = false;
+
 
     // ScoreNumber,Lives & Coins
     private ScoreNumber _scoreNumber;
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
         _keyBar = FindObjectOfType<KeyBar>();
         _sprintBar = FindObjectOfType<SprintBar>();
         _floorBar = FindObjectOfType<FloorBar>();
+        _iceBar = FindObjectOfType<IceBar>();
         _scoreNumber = FindObjectOfType<ScoreNumber>();
         _livesBar = FindObjectOfType<Lives>();
         _coinsBar = FindObjectOfType<Coins>();
@@ -126,9 +131,8 @@ public class PlayerController : MonoBehaviour
         {
             if (!_grounded && !_flooraux)
             {
-                float _h = Input.GetAxis("Horizontal");
                 float aux = 1f;
-                if (_h<0.1f)
+                if (transform.localScale.x<0.1f)
                 {
                     aux = -1f; 
                 }
@@ -143,10 +147,30 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (!_iceaux)
+            {
+                float aux = 1f;
+                if (transform.localScale.x<0.1f)
+                {
+                    aux = -1f; 
+                }
+                Vector3 _shootPos = new Vector3( transform.position.x + aux/3, transform.position.y + 0.2f, 0f);
+                if(_iceBar.Ice())
+                {
+                    GameObject _iceObject = Instantiate(_ice, _shootPos, Quaternion.identity);
+                    _iceObject.GetComponent<Rigidbody2D>().velocity = new Vector3(3f*aux, 3f, 0f);
+                    _iceaux = true;
+                    Invoke("IceIn" , 0.5f);
+                }
+
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
-            _sprintAux = true;
-            _sprint=false;
+            _sprintAux = false;
             Invoke("Sprint" , 0.08f);
         }
         if (Input.GetKey(KeyCode.X))
@@ -159,17 +183,16 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.X))
         {
-            if (!_sprint)
-            {
-                _speed = _realSpeed;
-                _sprint=true;
-            }
             Invoke("Run" , 0.1f); 
             _sprintAux = true;
         }
         
     }
 
+    public void IceIn()
+    {
+        _iceaux = false;
+    }
     public void FloorIn()
     {
         _flooraux = false;
@@ -186,11 +209,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             _speed = _realSpeed;
-            _sprint=true;
         }
     }
     public void Run()
     {
+        _speed = _realSpeed;
         _sprintBar.IsSprint(false);
     }
 
@@ -199,7 +222,7 @@ public class PlayerController : MonoBehaviour
         Vector3 _fixedVelocity = _rb2d.velocity;
         _fixedVelocity.x *= 0.75f;
         _rb2d.velocity = _fixedVelocity;
-        float _h = Input.GetAxis("Horizontal");
+        _h = Input.GetAxis("Horizontal");
         _rb2d.AddForce(Vector2.right * _speed * _h);
         float _limitedSpeed = Mathf.Clamp(_rb2d.velocity.x, -_maxSpeed, _maxSpeed);
         _rb2d.velocity = new Vector2(_limitedSpeed, _rb2d.velocity.y);
