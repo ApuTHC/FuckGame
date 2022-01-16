@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
 
     // ScoreNumber,Lives & Coins
-    private ScoreNumber _scoreNumber;
+    public ScoreNumber _scoreNumber;
     private Lives _livesBar;
     private Coins _coinsBar;
     private int _score=0;
@@ -78,11 +78,11 @@ public class PlayerController : MonoBehaviour
         _sprintBar = FindObjectOfType<SprintBar>();
         _floorBar = FindObjectOfType<FloorBar>();
         _iceBar = FindObjectOfType<IceBar>();
-        _scoreNumber = FindObjectOfType<ScoreNumber>();
+        
         _livesBar = FindObjectOfType<Lives>();
         _coinsBar = FindObjectOfType<Coins>();
         
-        _scoreNumber.SetScore(_score);
+        //_scoreNumber.SetScore(_score);
         _livesBar.SetLives(_lives);
         _coinsBar.SetCoins(_coins);
 
@@ -312,18 +312,25 @@ public class PlayerController : MonoBehaviour
     }
     public void BoxJump(Vector3 _boxPos)
     {
+        _doubleJump = true;
+        _rb2d.velocity = Vector3.zero;
         if (_boxPos.z == 1f)
         {
-            _doubleJump = true;
-            _rb2d.velocity = Vector3.zero;
             float sidey = Mathf.Sign(Mathf.Abs(transform.position.y) - Mathf.Abs(_boxPos.y));
             _rb2d.AddForce(Vector2.up * sidey * _jumpPower, ForceMode2D.Impulse);
             JumpParticles(0);
         }
+        if (_boxPos.z == 0f)
+        {
+            float sidex = Mathf.Sign(Mathf.Abs(transform.position.x) - Mathf.Abs(_boxPos.x));
+            _rb2d.AddForce(Vector2.right * sidex * _jumpPower*3f, ForceMode2D.Impulse);
+        }
+        _score = _score + 10;
+        _scoreNumber.SetScore(_score);
     }
     public void SetLiveScore(Vector2 vector) 
     {
-        _score+= Mathf.FloorToInt(vector.y);
+        _score = _score + Mathf.FloorToInt(vector.y);
         _scoreNumber.SetScore(_score);
         
         if (vector.x<0)
@@ -399,7 +406,7 @@ public class PlayerController : MonoBehaviour
 
     public void EnemyKnockBack(Vector3 enemyPos)
     {
-        Vector2 aux = new Vector2(enemyPos.z , 10f);
+        Vector2 aux = new Vector2(-enemyPos.z , 10);
         SetLiveScore(aux);
         _pain = true;
         float sidey = Mathf.Sign(Mathf.Abs(transform.position.y) - Mathf.Abs(enemyPos.y));

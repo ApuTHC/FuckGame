@@ -7,24 +7,54 @@ public class CheckGround : MonoBehaviour
 	private PlayerController _player;
     private Rigidbody2D _rb2d;
 
+	[SerializeField]
+	private float delayPlatFall = 0.5f;
+
     void Start()
     {
         _player = GetComponentInParent<PlayerController>();
         _rb2d = GetComponentInParent<Rigidbody2D>();
     }
 
-	void OnCollisionStay2D(Collision2D _col)
+
+	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (_col.gameObject.tag == "Ground")
+		if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Head")
 		{
 			_player.SetGround(true);
 		}
+		if (col.gameObject.tag == "Platform")
+		{
+			_rb2d.velocity = Vector3.zero;
+			_player.transform.parent = col.transform;
+			_player.SetGround(true);
+		}
+		if (col.gameObject.tag == "PlatFall")
+		{
+			_player.SetGround(true);
+			Invoke("Fall", delayPlatFall);
+		}
+		if (col.gameObject.tag == "EndPoint")
+		{
+			_player.SetGround(true);
+			//Invoke("Win", 1.5f);
+		}
 	}
 
-	void OnCollisionExit2D(Collision2D _col)
+	void Fall()
 	{
-		if (_col.gameObject.tag == "Ground")
+		_player.SetGround(false);
+	}
+
+	void OnCollisionExit2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "Ground" || col.gameObject.tag == "EndPoint" )
 		{
+			_player.SetGround(false);
+		}
+		if (col.gameObject.tag == "Platform")
+		{
+			_player.transform.parent = null;
 			_player.SetGround(false);
 		}
 	}
