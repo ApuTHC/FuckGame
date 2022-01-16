@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7092063971841265630}
   m_Layer: 0
   m_Name: OneSidePlatform5
-  m_TagString: Ground
+  m_TagString: PlatStatic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

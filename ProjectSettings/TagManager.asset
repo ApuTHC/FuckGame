@@ -15,6 +15,7 @@ TagManager:
   - SpikeHead
   - GUI
   - Player_Ground
+  - PlatStatic
   layers:
   - Default
   - TransparentFX
