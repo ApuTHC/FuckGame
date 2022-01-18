@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5037730559304135049}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 8
+  _isCannon2: 0
   _minSpeed: 4
   _boomPeriod: 1
   _cannonBall: {fileID: 1224258230490769861, guid: e6eed5dbfcb222c459beaf67b031d3fe, type: 3}

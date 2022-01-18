@@ -19,6 +19,8 @@ public class MovilePlatform : MonoBehaviour {
 	bool stop = false;
 	int iteration=0;
 
+	private bool _isCool = false;
+
 	private Vector3 start, end;
 
 	// Use this for initialization
@@ -119,8 +121,20 @@ public class MovilePlatform : MonoBehaviour {
 		}
 	}
 
+	public void SetCool(bool cool)
+	{
+		_isCool = cool;
+		Invoke("MoveOn", 3f);
+	}
+
+	private void MoveOn(){
+		Color color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = color;
+		_isCool = false;
+	}
+
 	void FixedUpdate () {
-        if (isRect)
+        if (isRect && !_isCool)
         {
 			if (target != null)
 			{
@@ -134,7 +148,7 @@ public class MovilePlatform : MonoBehaviour {
 			}
 		}
 
-		if (isCircle)
+		if (isCircle && !_isCool)
 		{
             if (!stop)
             {
@@ -152,7 +166,7 @@ public class MovilePlatform : MonoBehaviour {
             }
 		}
 
-		if (isEllipse)
+		if (isEllipse && !_isCool)
 		{
 			if (!stop)
 			{

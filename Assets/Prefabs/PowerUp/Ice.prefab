@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5046251593782689974}
   - component: {fileID: 5046251593782689969}
   - component: {fileID: 5046251593782689968}
-  - component: {fileID: -1387578136332622471}
   - component: {fileID: 5046251593782689971}
+  - component: {fileID: -6028673221306464298}
   m_Layer: 0
   m_Name: Ice
   m_TagString: Untagged
@@ -101,20 +101,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.0013959855}
   serializedVersion: 2
   m_Radius: 0.09554921
---- !u!114 &-1387578136332622471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5046251593782689970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ffddb972c27bc14d9563a673da880ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifetime: 5
-  _destroyChildrenOnDeath: 0
 --- !u!50 &5046251593782689971
 Rigidbody2D:
   serializedVersion: 4
@@ -136,3 +122,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6028673221306464298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046251593782689970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78760ad0dd7c7d04d95e8688d9ec11c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

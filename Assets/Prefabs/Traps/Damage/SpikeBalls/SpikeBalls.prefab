@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 148683766865896558}
   m_Layer: 0
   m_Name: Spiked Ball
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8050542090395857974}
   m_Layer: 0
   m_Name: SpikeBalls
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4.13, y: 3.26}
+  m_ConnectedAnchor: {x: 47.941174, y: 16.288368}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
