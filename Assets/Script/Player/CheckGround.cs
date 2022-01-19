@@ -28,6 +28,7 @@ public class CheckGround : MonoBehaviour
             _rb2d.velocity = Vector3.zero;
             _player.transform.parent = col.transform;
             _player.SetGround(true);
+            col.gameObject.SendMessage("SetPlayer", true);
         }
         if (col.gameObject.tag == "PlatFall")
         {
@@ -56,6 +57,7 @@ public class CheckGround : MonoBehaviour
         {
             _player.transform.parent = null;
             _player.SetGround(false);
+            col.gameObject.SendMessage("SetPlayer", false);
         }
     }
 

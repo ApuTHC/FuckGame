@@ -10,6 +10,10 @@ public class SpikeBall : MonoBehaviour
 	public float rightLimit;
 	public float leftLimit;
 	public float speed;
+	private float _lifetime = 4.0f;
+    private float _timeAlive = 0.0f;
+	private bool _isCool = false;
+	private float _moveSpeed= 0.0f;
 
 	private Rigidbody2D rb2d;
 
@@ -28,24 +32,58 @@ public class SpikeBall : MonoBehaviour
 			GameObject chainschilds = Instantiate(chain, corregirPos1, Quaternion.identity);
 			chainschilds.transform.parent = transform;
 		}
+	}
 
+		public void SetCool(bool cool)
+	{
+		_timeAlive = 0;
+		_isCool = cool;
+	}
+
+		void Update()
+	{
+		if (_timeAlive > _lifetime && _isCool)
+        {
+			MoveOn();
+        }
+        if (_isCool)
+        {
+            _timeAlive += Time.deltaTime;
+        }
+	}
+
+	private void MoveOn(){
+		rb2d.freezeRotation = false;
+		_isCool = false;
+		Color color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        this.gameObject.GetComponentInChildren<SpriteRenderer>().color = color;
+		rb2d.angularVelocity = _moveSpeed;		
 	}
 
     // Update is called once per frame
     void FixedUpdate()
     {
-		Move();
+		if(!_isCool)
+		{
+			Move();
+		}
+		else
+		{
+			rb2d.freezeRotation = true;
+		}
 	}
 
 	void Move()
     {
-        if (transform.rotation.z < rightLimit && rb2d.angularVelocity > 0 && rb2d.angularVelocity < speed)
+        if (transform.rotation.z > -rightLimit && rb2d.angularVelocity > 0 && rb2d.angularVelocity < speed)
         {
 			rb2d.angularVelocity = speed;
         }
-        else if (transform.rotation.z > leftLimit && rb2d.angularVelocity < 0 && rb2d.angularVelocity > -speed)
+        else if (transform.rotation.z < leftLimit && rb2d.angularVelocity < 0 && rb2d.angularVelocity > -speed)
         {
 			rb2d.angularVelocity = -speed;
 		}
+		_moveSpeed = rb2d.angularVelocity;
+		Debug.Log(rb2d.angularVelocity);
     }
 }

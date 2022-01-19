@@ -37,7 +37,7 @@ public class IceController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Platform" || col.gameObject.tag == "Head")
         {
             
             _colli = true;
@@ -45,7 +45,7 @@ public class IceController : MonoBehaviour
             _posY = col.transform.position.y;
             col.transform.position = new Vector3(_posX,_posY,0f);
             Color color = new Color(81 / 255f, 231 / 255f, 255 / 255f, 255 / 255f);
-            col.gameObject.GetComponent<SpriteRenderer>().color = color;
+            col.gameObject.GetComponentInChildren<SpriteRenderer>().color = color;
             _spr.enabled = false;
             _rb2d.velocity = Vector2.zero;
             _rb2d.isKinematic = true;

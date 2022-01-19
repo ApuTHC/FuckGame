@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4343039156617307774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.941174, y: 16.288368, z: -10.185496}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 133267182}
@@ -207,9 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikeBall: {fileID: 133267182}
   chain: {fileID: 2728524663482907115, guid: 7f3ade1d82c39a04eafdf8e5e30c668b, type: 3}
-  rightLimit: 5
-  leftLimit: 5
-  speed: 5
+  rightLimit: 50
+  leftLimit: 50
+  speed: 50
 --- !u!114 &8050542090395857974
 MonoBehaviour:
   m_ObjectHideFlags: 0
