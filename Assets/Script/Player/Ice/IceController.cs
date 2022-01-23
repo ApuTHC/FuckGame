@@ -37,7 +37,7 @@ public class IceController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Platform" || col.gameObject.tag == "Head")
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Platform" || col.gameObject.tag == "Head" || col.gameObject.tag == "SpikeHead")
         {
             
             _colli = true;

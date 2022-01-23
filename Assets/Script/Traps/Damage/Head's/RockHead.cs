@@ -13,6 +13,12 @@ public class RockHead : MonoBehaviour
     private Animator anim;
     //private BoxCollider2D bc2d;
 
+    private float _lifetime = 4.0f;
+    private float _timeAlive = 0.0f;
+	private bool _isCool = false;
+
+    private Vector2 _velocity;
+
     bool up;
     bool down;
     bool right;
@@ -32,24 +38,24 @@ public class RockHead : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb2d.velocity.y > 1f) { up = true; up1 = true; }
-        if (rb2d.velocity.y < -1f) { down = true; down1 = true; }
-        if (rb2d.velocity.x > 1f) { right = true; right1 = true; }
-        if (rb2d.velocity.x < -1f) { left = true; left1 = true; }
+        if (rb2d.velocity.y > 1f && !_isCool) { up = true; up1 = true; }
+        if (rb2d.velocity.y < -1f && !_isCool) { down = true; down1 = true; }
+        if (rb2d.velocity.x > 1f && !_isCool) { right = true; right1 = true; }
+        if (rb2d.velocity.x < -1f && !_isCool) { left = true; left1 = true; }
 
-        if (up1)
+        if (up1 && !_isCool)
         {
             rb2d.velocity = new Vector3(0f, 10f, 0f);
         }
-        if (down1)
+        if (down1 && !_isCool)
         {
             rb2d.velocity = new Vector3(0f, -10f, 0f);
         }
-        if (right1)
+        if (right1 && !_isCool)
         {
             rb2d.velocity = new Vector3(10f, 0f, 0f);
         }
-        if (left1)
+        if (left1 && !_isCool)
         {
             rb2d.velocity = new Vector3(-10f, 0f, 0f);
         }
@@ -92,6 +98,33 @@ public class RockHead : MonoBehaviour
             }
         }
     }
+
+    public void SetCool(bool cool)
+	{
+		_timeAlive = 0;
+		_isCool = cool;
+		_velocity = rb2d.velocity;
+	}
+
+	void Update()
+	{
+		if (_timeAlive > _lifetime && _isCool)
+        {
+			MoveOn();
+        }
+        if (_isCool)
+        {
+            _timeAlive += Time.deltaTime;
+            rb2d.velocity = Vector2.zero;
+        }
+	}
+
+	private void MoveOn(){
+		Color color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = color;
+		_isCool = false;
+        rb2d.velocity = _velocity;
+	}
 
     void Go()
     {

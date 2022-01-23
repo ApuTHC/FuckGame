@@ -31,7 +31,7 @@ public class CheckWall : MonoBehaviour
         if (_col.gameObject.tag == "Ground")
         {
             _player.SetWall(false);
-            _player.SetWallJump(true);
+            //_player.SetWallJump(true);
         }
     }
 

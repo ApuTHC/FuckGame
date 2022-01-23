@@ -23,12 +23,15 @@ public class CheckGround : MonoBehaviour
         {
             _player.SetGround(true);
         }
-        if (col.gameObject.tag == "Platform")
+        if (col.gameObject.tag == "Platform" || col.gameObject.tag == "Platform1")
         {
             _rb2d.velocity = Vector3.zero;
             _player.transform.parent = col.transform;
             _player.SetGround(true);
-            col.gameObject.SendMessage("SetPlayer", true);
+            if (col.gameObject.tag == "Platform1")
+            {
+                col.gameObject.SendMessage("SetPlayer", true);
+            }
         }
         if (col.gameObject.tag == "PlatFall")
         {
@@ -53,18 +56,26 @@ public class CheckGround : MonoBehaviour
         {
             _player.SetGround(false);
         }
-        if (col.gameObject.tag == "Platform")
+        if (col.gameObject.tag == "Platform" || col.gameObject.tag == "Platform1")
         {
             _player.transform.parent = null;
             _player.SetGround(false);
-            col.gameObject.SendMessage("SetPlayer", false);
+            if (col.gameObject.tag == "Platform1")
+            {
+                col.gameObject.SendMessage("SetPlayer", false);
+            }
         }
     }
-
+    
     public void BoxJump(Vector3 _boxPos)
     {
         _player.BoxJump(_boxPos);
     }
+
+    public void EnemyJump()
+	{
+		_player.EnemyJump();
+	}
 
     public void Impulse(Vector2 vector)
     {

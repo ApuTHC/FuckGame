@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         
         //_scoreNumber.SetScore(_score);
         _livesBar.SetLives(_lives);
-        _coinsBar.SetCoins(_coins);
+        //_coinsBar.SetCoins(_coins);
 
         _realSpeed = _speed;
     }
@@ -395,6 +395,10 @@ public class PlayerController : MonoBehaviour
         _coinsBar.SetCoins(_coins);
     }
 
+    public void EnemyJump()
+    {
+        _jump = true;
+    }
     public void Impulse(Vector2 vector)
     {
         if (vector.x == 0 || vector.y != 0)

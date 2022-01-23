@@ -16,6 +16,7 @@ TagManager:
   - GUI
   - Player_Ground
   - PlatStatic
+  - Platform1
   layers:
   - Default
   - TransparentFX

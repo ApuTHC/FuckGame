@@ -166,9 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  vertical: 1
+  vertical: 0
   horizontal: 0
-  square: 0
+  square: 1
 --- !u!61 &1400407443
 BoxCollider2D:
   m_ObjectHideFlags: 0
