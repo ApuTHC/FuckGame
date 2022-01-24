@@ -4,117 +4,98 @@ using UnityEngine;
 
 public class AngryPig : MonoBehaviour
 {
-    public float visionRadius;
-    public float attackRadius;
-    public float speed;
+    public float _speed;
     public int maxHp = 3;
     public int damage = 25;
-
+    public Transform _target;
     float initialSpeed;
     int hp;
-    bool pain;
+    bool pain = false;
     bool aux;
+    private Vector3 _start, _end;
+    private GameObject player;
+    private Animator anim;
+    private Rigidbody2D rb2d;
+    private SpawnCoins _spawnCoins;
 
-    Vector3 initialPosition, target;
-    GameObject player;
-    Animator anim;
-    Rigidbody2D rb2d;
+    private float _lifetime = 4.0f;
+    private float _timeAlive = 0.0f;
+    private bool _isCool = false;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        initialPosition = transform.position;
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        _spawnCoins = GetComponent<SpawnCoins>();
         hp = maxHp;
-        initialSpeed = speed;
+        initialSpeed = _speed;
+        if (_target != null)
+        {
+            _target.parent = null;
+            _start = transform.position;
+            _end = _target.position;
+        }
     }
 
     void Update()
-    {
-        target = initialPosition;
-
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
-            player.transform.position - transform.position,
-            visionRadius,
-            1 << LayerMask.NameToLayer("Player")
-        );
-        Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-        Debug.DrawRay(transform.position, forward, Color.red);
-
-        if (hit.collider != null)
+	{
+		if (_timeAlive > _lifetime && _isCool)
         {
-            if (hit.collider.tag == "Player")
-            {
-                target = player.transform.position;
-            }
+			MoveOn();
         }
+        if (_isCool)
+        {
+            _timeAlive += Time.deltaTime;
+        }
+	}
 
-        Debug.DrawLine(transform.position, target, Color.green);
-    }
+	private void MoveOn(){
+		Color color = new Color(255 / 255f, 255 / 255f, 255 / 255f, 255 / 255f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = color;
+		_isCool = false;
+	}
+    	public void SetCool(bool cool)
+	{
+		_timeAlive = 0;
+		_isCool = cool;
+        anim.SetBool("Walk", false);
+        anim.SetBool("Run", false);
+	}
 
     void FixedUpdate()
     {
-        float distance = Vector3.Distance(target, transform.position);
-
-        if (target != initialPosition && distance < attackRadius)
+        if (transform.position.x < _target.position.x+0.2f && transform.position.x > _target.position.x-0.2f)
         {
-            rb2d.velocity = Vector3.zero;
-            anim.SetBool("Walk", false);
+            _target.position = (_target.position == _start) ? _end : _start;
         }
-        else
+        if (hp == maxHp && !pain && !_isCool)
         {
-            if (hp == maxHp && !pain)
-            {
-                anim.SetBool("Walk", true);
-            }
-            if (hp < maxHp && !pain)
-            {
-                anim.SetBool("Run", true);
-            }
-
-            float h = target.x - transform.position.x;
-
-            if (h < -0.05f && !pain)
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-                rb2d.velocity = new Vector3(-speed, rb2d.velocity.y, 0f);
-            }
-
-            if (h > 0.05f && !pain)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-                rb2d.velocity = new Vector3(speed, rb2d.velocity.y, 0f);
-            }
-
-            if (h >= -0.05f && h <= 0.05f && !pain)
-            {
-                if (hp == maxHp)
-                {
-                    anim.SetBool("Walk", false);
-                }
-                rb2d.velocity = new Vector3(0f, rb2d.velocity.y, 0f);
-            }
-
+            anim.SetBool("Walk", true);
+        }
+        if (hp < maxHp && !pain && !_isCool)
+        {
+            anim.SetBool("Run", true);
         }
 
-        if (target == initialPosition && transform.position.x < target.x + 0.06f && transform.position.x > target.x - 0.06f)
-        {
-            transform.position = initialPosition;
-            anim.SetBool("Walk", false);
-            anim.SetBool("Run", false);
-            hp = maxHp;
-            aux = false;
-            speed = initialSpeed;
-        }
-    }
+        float h = _target.position.x - transform.position.x;
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, visionRadius);
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        if (h < -0.05f && !pain && !_isCool)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            rb2d.velocity = new Vector2(-_speed, 0f);
+        }
+
+        if (h > 0.05f && !pain && !_isCool)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            rb2d.velocity = new Vector2(_speed, 0f);
+        }
+
+        if (_isCool)
+        {
+            rb2d.velocity = new Vector2(0f, 0f);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -122,7 +103,7 @@ public class AngryPig : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             float yOffset = 0.1f;
-            if (transform.position.y + yOffset < col.transform.position.y && transform.position.x < col.transform.position.x + 0.5f && transform.position.x > col.transform.position.x - 0.5f)
+            if (transform.position.y + yOffset < col.transform.position.y && transform.position.x < col.transform.position.x + 0.5f && transform.position.x > col.transform.position.x - 0.5f && !pain)
             {
                 pain = true;
                 player.SendMessage("EnemyJump");
@@ -131,23 +112,27 @@ public class AngryPig : MonoBehaviour
                 {
                     if (!aux)
                     {
-                        speed = 2 * initialSpeed;
+                        _speed = 2 * initialSpeed;
                         aux = true;
                     }
                     anim.SetBool("Walk", false);
                     anim.SetBool("Hit", true);
                     anim.SetBool("Run", false);
-                    float sidex = Mathf.Sign(Mathf.Abs(target.x) - Mathf.Abs(transform.position.x));
+                    float sidex = Mathf.Sign(Mathf.Abs(player.transform.position.x) - Mathf.Abs(transform.position.x));
                     rb2d.AddForce(Vector2.left * sidex * 3f, ForceMode2D.Impulse);
                     Invoke("Hit", 1f);
                 }
                 if (hp == 0)
                 {
                     anim.SetBool("Hit2", true);
-                    Destroy(gameObject, 1f);
+                    _spawnCoins.Destroyer();
+                    Destroy(this.gameObject, 2f);
+                    Destroy(_target.gameObject, 2f);
+                    Vector2 aux = new Vector2 (0f, 350f);
+                    player.SendMessage("SetLiveScore", aux);
                 }
             }
-            else
+            else if(!pain)
             {
                 Vector3 vector = new Vector3(transform.position.x, transform.position.y, damage);
                 player.SendMessage("EnemyKnockBack", vector);
