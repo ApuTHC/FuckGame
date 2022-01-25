@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc49b30ff757cd44b9999191e135aa40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayPlatFall: 0.5
 --- !u!1 &5397090050400593353
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +132,7 @@ GameObject:
   - component: {fileID: 5397090050400593356}
   - component: {fileID: 4783399355192646396}
   - component: {fileID: 6229320888145310924}
+  - component: {fileID: 7400124465765458441}
   - component: {fileID: 3596342470861387806}
   m_Layer: 8
   m_Name: NinjaFrog
@@ -201,6 +203,27 @@ MonoBehaviour:
   _jumpParticles1: {fileID: 3324875733046132629, guid: bb24927ed63f169409a33b9af27a673e, type: 3}
   _fallParticles: {fileID: 6468691174848979131, guid: e899fdcbf4f9c9540bee5963f185b01c, type: 3}
   _runParticles: {fileID: 5920445711097872113, guid: a1bcd7af5e283394293a445f774cb7cb, type: 3}
+--- !u!114 &7400124465765458441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397090050400593353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dfd64d3d379eec45b06ac98b0a8ff92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attack: {fileID: 640987460411543349, guid: fe48a26b916810f479865be016573c82, type: 3}
+  _boom: {fileID: 5013247853741723457, guid: 46820640d13d3f1459cab14b1d9fa413, type: 3}
+  _dead: {fileID: 7904646720406444127, guid: 71556420a6a76c24195fbb64e33f746a, type: 3}
+  _exclamation: {fileID: 989519361636425753, guid: 2806ac5616bad3d4fb179c222ec9d64c, type: 3}
+  _hello: {fileID: 6869150389072665058, guid: 24d41149a611ffb4a8d64875321128a6, type: 3}
+  _interrogation: {fileID: 4127115209402771405, guid: d7b7293909e581b409f002a23b4bf2fd, type: 3}
+  _loser: {fileID: 1298510591265205919, guid: 02141be216125064a8613d7d495623fd, type: 3}
+  _no: {fileID: 5479791059669415608, guid: 424900887e85570428f7b1e874e10acf, type: 3}
+  _wtf: {fileID: 675880270355574859, guid: 3c3d02ced1f6a1048bdd3c8d0fb7491f, type: 3}
 --- !u!114 &3596342470861387806
 MonoBehaviour:
   m_ObjectHideFlags: 0

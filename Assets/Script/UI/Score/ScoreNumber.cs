@@ -49,7 +49,7 @@ public class ScoreNumber : MonoBehaviour
         _sprites[8] = _sprite8;
         _sprites[9] = _sprite9;
 
-        SetScore(0);
+        //SetScore(300);
     }
 
     public void SetScore(int _score)

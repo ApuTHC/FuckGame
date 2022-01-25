@@ -109,14 +109,8 @@ public class Mushroom : MonoBehaviour
             float yOffset = 0.1f;
             if (transform.position.y + yOffset < col.transform.position.y && transform.position.x < col.transform.position.x + 0.5f && transform.position.x > col.transform.position.x - 0.5f && !pain)
             {
-                pain = true;
                 player.SendMessage("EnemyJump");
-                anim.SetBool("Hit", true);
-                _spawnCoins.Destroyer();
-                Destroy(_target.gameObject, 1.5f);
-                Vector2 aux = new Vector2 (0f, 250f);
-                player.SendMessage("SetLiveScore", aux);
-                Destroy(this.gameObject, 1f);
+                Dead();
             }
             else if(!pain)
             {
@@ -127,6 +121,18 @@ public class Mushroom : MonoBehaviour
 
 
         }
+    }
+
+    public void Dead()
+    {
+        pain = true;
+        anim.SetBool("Hit", true);
+        _spawnCoins.Destroyer();
+        Destroy(_target.gameObject, 1.5f);
+        Vector2 aux = new Vector2 (0f, 250f);
+        player.SendMessage("SetLiveScore", aux);
+        player.SendMessage("Dead");
+        Destroy(this.gameObject, 1f);
     }
     void Stop()
     {

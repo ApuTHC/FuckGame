@@ -65,9 +65,14 @@ public class PlayerController : MonoBehaviour
     private bool _checkFall = false;
     private bool _checkRun = true;
     private bool _auxRun = true;
+
+    //Dialogs
+
+    private Dialogs _dialog;
    
     void Start()
     {
+        _dialog = GetComponent<Dialogs>();
         _rb2d = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<Animator>(); 
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -82,13 +87,18 @@ public class PlayerController : MonoBehaviour
         _livesBar = FindObjectOfType<Lives>();
         _coinsBar = FindObjectOfType<Coins>();
         
-        //_scoreNumber.SetScore(_score);
-        _livesBar.SetLives(_lives);
-        //_coinsBar.SetCoins(_coins);
-
         _realSpeed = _speed;
+
+        Invoke("SetStats", 0.5f);
+        Invoke("Hello", 1f);
     }
 
+    private void SetStats()
+    {
+        _scoreNumber.SetScore(300);
+        _livesBar.SetLives(_lives);
+        _coinsBar.SetCoins(_coins);
+    }
     
     void Update()
     {
@@ -426,6 +436,43 @@ public class PlayerController : MonoBehaviour
     {
         _spriteRenderer.color = Color.white;
         _pain = false;
+    }
+
+    public void Hello()
+    {
+        _dialog.Dialog("hello");
+    }
+    public void Attack()
+    {
+        _dialog.Dialog("attack");
+    }
+    public void Boom()
+    {
+        _dialog.Dialog("boom");
+    }
+    public void Dead()
+    {
+        _dialog.Dialog("dead");
+    }
+    public void Exclamation()
+    {
+        _dialog.Dialog("exclamation");
+    }
+    public void Interrogation()
+    {
+        _dialog.Dialog("interrogation");
+    }
+    public void Loser()
+    {
+        _dialog.Dialog("loser");
+    }
+    public void No()
+    {
+        _dialog.Dialog("no");
+    }
+    public void WTF()
+    {
+        _dialog.Dialog("wtf");
     }
 
 }

@@ -107,30 +107,7 @@ public class AngryPig : MonoBehaviour
             {
                 pain = true;
                 player.SendMessage("EnemyJump");
-                hp--;
-                if (hp>0)
-                {
-                    if (!aux)
-                    {
-                        _speed = 2 * initialSpeed;
-                        aux = true;
-                    }
-                    anim.SetBool("Walk", false);
-                    anim.SetBool("Hit", true);
-                    anim.SetBool("Run", false);
-                    float sidex = Mathf.Sign(Mathf.Abs(player.transform.position.x) - Mathf.Abs(transform.position.x));
-                    rb2d.AddForce(Vector2.left * sidex * 3f, ForceMode2D.Impulse);
-                    Invoke("Hit", 1f);
-                }
-                if (hp == 0)
-                {
-                    anim.SetBool("Hit2", true);
-                    _spawnCoins.Destroyer();
-                    Destroy(this.gameObject, 2f);
-                    Destroy(_target.gameObject, 2f);
-                    Vector2 aux = new Vector2 (0f, 350f);
-                    player.SendMessage("SetLiveScore", aux);
-                }
+                Dead();
             }
             else if(!pain)
             {
@@ -139,6 +116,34 @@ public class AngryPig : MonoBehaviour
             }
 
 
+        }
+    }
+    public void Dead()
+    {
+        hp--;
+        if (hp>0)
+        {
+            if (!aux)
+            {
+                _speed = 2 * initialSpeed;
+                aux = true;
+            }
+            anim.SetBool("Walk", false);
+            anim.SetBool("Hit", true);
+            anim.SetBool("Run", false);
+            float sidex = Mathf.Sign(Mathf.Abs(player.transform.position.x) - Mathf.Abs(transform.position.x));
+            rb2d.AddForce(Vector2.left * sidex * 3f, ForceMode2D.Impulse);
+            Invoke("Hit", 1f);
+        }
+        if (hp == 0)
+        {
+            anim.SetBool("Hit2", true);
+            _spawnCoins.Destroyer();
+            Destroy(this.gameObject, 2f);
+            Destroy(_target.gameObject, 2f);
+            Vector2 aux = new Vector2 (0f, 350f);
+            player.SendMessage("SetLiveScore", aux);
+            player.SendMessage("Dead");
         }
     }
     void Hit()

@@ -21,8 +21,17 @@ public class ExplotionArea : MonoBehaviour
 		{
 			if(_isBoom && !_isDamage)
             {
-                Vector2 vector = new Vector2(-_damage, 100f);
-                col.gameObject.SendMessage("SetLiveScore", vector);
+                Vector3 vector = new Vector3(transform.position.x, transform.position.y, _damage);
+                col.SendMessage("EnemyKnockBack", vector);
+                _isDamage = true;
+            }
+		}
+
+		if (col.gameObject.tag == "Enemy")
+		{
+			if(_isBoom && !_isDamage)
+            {
+                col.SendMessage("Dead");
                 _isDamage = true;
             }
 		}
