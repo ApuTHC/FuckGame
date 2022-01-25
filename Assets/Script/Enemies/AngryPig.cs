@@ -143,6 +143,7 @@ public class AngryPig : MonoBehaviour
             Destroy(_target.gameObject, 2f);
             Vector2 aux = new Vector2 (0f, 350f);
             player.SendMessage("SetLiveScore", aux);
+            player.SendMessage("SetKillBar", 50);
             player.SendMessage("Dead");
         }
     }

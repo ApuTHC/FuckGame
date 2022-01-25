@@ -35,6 +35,18 @@ public class CheckWall : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.tag == "Bomb")
+		{
+			col.gameObject.SendMessage("Collected");
+			Destroy(col.gameObject, 0.4f);
+            var aux = _player.GetBombs();
+            aux++;
+            _player.SetBombs(aux);
+		}
+	}
+
     public void SetLiveScore(Vector2 vector)
     {
         _player.SetLiveScore(vector);

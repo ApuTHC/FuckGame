@@ -10,23 +10,39 @@ public class ThrowBomb : MonoBehaviour
     private float _lifetime = 3.0f;
     private float _timeAlive = 0.0f;
     private bool _pulseA = false;
-
+    private PlayerController _player;    
     private bool _dialog = false;
+    private int _loser = 3;
 
+
+    void Start()
+    {
+        _player = GetComponent<PlayerController>();
+    }
     void Update()
     {
         if (_pulseA)
         {
             _timeAlive += Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && _player.GetBombs()>0)
         {
             Vector3 _shootPos = new Vector3( transform.position.x + (0.5f * transform.localScale.x), transform.position.y + 0.5f, 0f);
             _chargingBarObject = Instantiate(_chargingBar, _shootPos, Quaternion.identity);
             _chargingBarObject.transform.parent = this.transform;
             _pulseA = true;
+            _loser = 3;
         }
-        if (Input.GetKeyUp(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) && _player.GetBombs()==0 && _loser==0)
+        {
+            _player.Loser();
+        }
+        if (Input.GetKeyDown(KeyCode.V) && _player.GetBombs()==0 && _loser>0)
+        {
+            _player.No();
+            _loser--;
+        }
+        if (Input.GetKeyUp(KeyCode.V) && _player.GetBombs()>0)
         {
             _chargingBarObject.GetComponent<Animator>().SetBool("isClosing", true);
             Destroy(_chargingBarObject, 0.25f);
@@ -36,6 +52,9 @@ public class ThrowBomb : MonoBehaviour
             _bombObject.GetComponent<Rigidbody2D>().velocity = new Vector3(transform.localScale.x * power/2, 1f * power/2, 0f);
             _pulseA = false; 
             _timeAlive = 0;
+            var aux = _player.GetBombs();
+            aux--;
+            _player.SetBombs(aux);
             if(!_dialog)
             {
                 _dialog = true;
@@ -46,7 +65,7 @@ public class ThrowBomb : MonoBehaviour
 
     private void Dialog()
     {
-        GetComponent<PlayerController>().SendMessage("Boom");
+        _player.Boom();
         _dialog = false;
     }
 }

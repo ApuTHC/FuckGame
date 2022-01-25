@@ -17,6 +17,7 @@ TagManager:
   - Player_Ground
   - PlatStatic
   - Platform1
+  - Bomb
   layers:
   - Default
   - TransparentFX

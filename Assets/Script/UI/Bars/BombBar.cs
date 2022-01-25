@@ -8,26 +8,28 @@ public class BombBar : MonoBehaviour
     public Image _bombBar1;
     public Image _bombBar2;
     public Image _bombBar3;
+    public Image[] _bombs = new Image[3]; 
 
     void Start()
     {
-        _bombBar1.enabled = false;
-        _bombBar2.enabled = false;
-        _bombBar3.enabled = false;
+        _bombs[0] = _bombBar1;
+        _bombs[1] = _bombBar2;
+        _bombs[2] = _bombBar3;
+
+        for (var i = 0; i < 3; i++)
+        {
+            _bombs[i].enabled = false;
+        }
     }
-    public void HideShowBombs(bool _hideshowBombi, int _bombi)
+    public void SetBombs(int bombs)
     {
-        if (_bombi == 1)
+        for (var i = 0; i < 3; i++)
         {
-            _bombBar1.enabled=_hideshowBombi;
+            _bombs[i].enabled = false;
         }
-        if (_bombi == 2)
+        for (var i = 0; i < bombs; i++)
         {
-            _bombBar2.enabled=_hideshowBombi;
-        }
-        if (_bombi == 3)
-        {
-            _bombBar3.enabled=_hideshowBombi;
+            _bombs[i].enabled = true;
         }
     }
     

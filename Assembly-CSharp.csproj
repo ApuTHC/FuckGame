@@ -83,6 +83,7 @@
      <Compile Include="Assets\Script\UI\Score\ScoreNumber.cs" />
      <Compile Include="Assets\Script\UI\Bars\KillBar.cs" />
      <Compile Include="Assets\Script\UI\Pause\Pause.cs" />
+     <Compile Include="Assets\Script\Player\Dialogs.cs" />
      <Compile Include="Assets\Script\Items\Box\BoxHit.cs" />
      <Compile Include="Assets\Script\Traps\Damage\Cannon\CannonController.cs" />
      <Compile Include="Assets\Script\Camara\CameraFollow.cs" />
@@ -93,7 +94,7 @@
      <Compile Include="Assets\Script\Traps\Damage\Spikes\Spikes.cs" />
      <Compile Include="Assets\Script\Items\Potion\BluePotionCollected.cs" />
      <Compile Include="Assets\Script\Items\Points\EndPoint.cs" />
-     <Compile Include="Assets\Script\Player\Dialogs.cs" />
+     <Compile Include="Assets\Script\Items\Bomb\BombDrop.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

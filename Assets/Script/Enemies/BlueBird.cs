@@ -127,6 +127,7 @@ public class BlueBird : MonoBehaviour
         Destroy(_target.gameObject, 1.5f);
         Vector2 aux = new Vector2 (0f, 250f);
         player.SendMessage("SetLiveScore", aux);
+        player.SendMessage("SetKillBar", 50);
         player.SendMessage("Dead");
         Destroy(this.gameObject, 1f);
     }

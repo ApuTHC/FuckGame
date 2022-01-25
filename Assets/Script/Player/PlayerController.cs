@@ -67,8 +67,11 @@ public class PlayerController : MonoBehaviour
     private bool _auxRun = true;
 
     //Dialogs
-
     private Dialogs _dialog;
+
+    //Bombs
+    private BombBar _bombBar;
+    private int _bombs = 0;
    
     void Start()
     {
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         _healthbar = FindObjectOfType<HelthBar>();
+        _bombBar = FindObjectOfType<BombBar>();
         _killbar = FindObjectOfType<KillBar>();
         _keyBar = FindObjectOfType<KeyBar>();
         _sprintBar = FindObjectOfType<SprintBar>();
@@ -95,9 +99,10 @@ public class PlayerController : MonoBehaviour
 
     private void SetStats()
     {
-        _scoreNumber.SetScore(300);
+        _scoreNumber.SetScore(_score);
         _livesBar.SetLives(_lives);
         _coinsBar.SetCoins(_coins);
+        _bombBar.SetBombs(_bombs);
     }
     
     void Update()
@@ -178,6 +183,10 @@ public class PlayerController : MonoBehaviour
                     _iceObject.GetComponent<Rigidbody2D>().velocity = new Vector3(3f*aux, 3f, 0f);
                     _iceaux = true;
                     Invoke("IceIn" , 0.5f);
+                }
+                else
+                {
+                    No();
                 }
 
             }
@@ -361,32 +370,54 @@ public class PlayerController : MonoBehaviour
             _healthbar.ModifyHealth(vector.x);
         }
     }
-    public void SetWall(bool _walli)
+    public void SetWall(bool walli)
     {
-        _wall=_walli;
+        _wall=walli;
     }
-    public void SetWallJump(bool _jumpi)
+    public void SetKillBar(int killi)
     {
-        _wallJump=_jumpi;
+        var aux = _killbar.GetKill() + killi;
+        _killbar.SetKill(aux);
     }
-    public void SetGround(bool _groundi)
+    public void SetWallJump(bool jumpi)
     {
-        _grounded=_groundi;
+        _wallJump=jumpi;
+    }
+    public void SetGround(bool groundi)
+    {
+        _grounded = groundi;
     }
 
     public bool GetKey()
     {
         return _key;
     }
+    public int GetBombs()
+    {
+        return _bombs;
+    }
     public int GetScore()
     {
         return _score;
     }
 
-    public void SetKey(bool _keyi)
+    public void SetBombs(int bombi)
     {
-        _key = _keyi;
-        _keyBar.HideShowKey(_keyi);
+        _bombs = bombi;
+        if (_bombs<0)
+        {
+            _bombs = 0;
+        }
+        if (_bombs>3)
+        {
+            _bombs = 3;
+        }
+        _bombBar.SetBombs(_bombs);
+    }
+    public void SetKey(bool keyi)
+    {
+        _key = keyi;
+        _keyBar.HideShowKey(keyi);
     }
 
     public void LiveUp(int livi)
