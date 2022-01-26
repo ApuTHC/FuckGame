@@ -11,9 +11,12 @@ GameObject:
   - component: {fileID: 1507780061464752753}
   - component: {fileID: 8850566445274485908}
   - component: {fileID: 6242542109063843878}
+  - component: {fileID: 2249758708066410201}
+  - component: {fileID: 864726856781574145}
+  - component: {fileID: 1349744018761705600}
   m_Layer: 9
   m_Name: Plant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,8 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7059297670216363161, guid: 326dd6eeaa0ca144ca01194dbacf63fa,
-    type: 3}
+  m_Sprite: {fileID: 7059297670216363161, guid: 326dd6eeaa0ca144ca01194dbacf63fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,3 +105,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &2249758708066410201
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593342004369783125}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08423841, y: -0.10075915}
+  m_Size: {x: 0.56789994, y: 0.7984817}
+  m_Direction: 0
+--- !u!114 &864726856781574145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593342004369783125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c45ffed2b366c41a44e70e4699e188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _object1: {fileID: 7346208506005810228, guid: 2d1df2a56bf33fd4d8d1fc1ed633867e, type: 3}
+  _object2: {fileID: 7346208506005810228, guid: 2d1df2a56bf33fd4d8d1fc1ed633867e, type: 3}
+  _object3: {fileID: 7346208506005810228, guid: 2d1df2a56bf33fd4d8d1fc1ed633867e, type: 3}
+--- !u!114 &1349744018761705600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593342004369783125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b99188039569f344aafefc0634fdd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _death: {fileID: 5913312735827604149, guid: 49277ad8be436de45bfe0d0a117a7193, type: 3}
+  damage: 25
+  _timeAttack: 1.5
+  _bullet: {fileID: 6999954506159017294, guid: 674dffc83eb35fe439eeaa21af15d3e7, type: 3}
+  _maxSpeed: 6
+  _minSpeed: 4

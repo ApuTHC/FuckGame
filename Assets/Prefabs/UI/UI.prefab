@@ -230,6 +230,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5090736861140979843}
     m_Modifications:
+    - target: {fileID: 433247332, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 433247332, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 433
+      objectReference: {fileID: 0}
+    - target: {fileID: 610823821, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 610823821, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 480
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293896905, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293896905, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 526
+      objectReference: {fileID: 0}
     - target: {fileID: 1001508607420527691, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
       propertyPath: m_Name
       value: Bars
@@ -330,6 +354,14 @@ PrefabInstance:
       propertyPath: _gameover
       value: 
       objectReference: {fileID: 706267107855111330}
+    - target: {fileID: 4328454531409341603, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4404142072575823297, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5c35ea7efb020439c1ba31825cf9e8, type: 3}
 --- !u!224 &5423456490824121864 stripped

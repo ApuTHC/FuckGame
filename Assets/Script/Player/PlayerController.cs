@@ -57,6 +57,11 @@ public class PlayerController : MonoBehaviour
     private int _lives = 3;
     private int _coins = 0;
 
+    //Audio
+    public GameObject _hurt;
+    public GameObject _death;
+
+    
     // Particles
     public GameObject _jumpParticles;
     public GameObject _jumpParticles1;
@@ -424,7 +429,18 @@ public class PlayerController : MonoBehaviour
     {
         _lives += livi;
         _livesBar.SetLives(_lives);
+
+        if (livi<0)
+        {
+            Instantiate(_death, this.transform.position, Quaternion.identity);
+            _healthbar.Restart();
+        }
     }
+    public int GetLive()
+    {
+        return _lives;
+    }
+
     public void CoinUp(int coini)
     {
         _coins += coini;
@@ -460,6 +476,7 @@ public class PlayerController : MonoBehaviour
         _rb2d.AddForce(Vector2.left * sidex * _jumpPower*0.6f, ForceMode2D.Impulse);       
         Color color = new Color(143 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
         _spriteRenderer.color = color;
+        Instantiate(_hurt, this.transform.position, Quaternion.identity);
         Invoke("NoPain", 0.7f);
     }
 

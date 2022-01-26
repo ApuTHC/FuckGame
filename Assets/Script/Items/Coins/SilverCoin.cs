@@ -12,6 +12,7 @@ public class SilverCoin : MonoBehaviour
 	private CircleCollider2D _cc2d;
     private Rigidbody2D _rb2d;
     private PlayerController _player;
+	public GameObject _pickUp;
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -34,6 +35,7 @@ public class SilverCoin : MonoBehaviour
 		{
 			_player.CoinUp(_coins);
 			_animator.SetTrigger("Collected");
+			Instantiate(_pickUp, this.transform.position, Quaternion.identity);
 			Destroy(this.gameObject, 0.35f);
 		}
 	}
@@ -53,6 +55,7 @@ public class SilverCoin : MonoBehaviour
 			_cc2d.isTrigger = true;
             _player.CoinUp(_coins);
 			_animator.SetTrigger("Collected");
+			Instantiate(_pickUp, this.transform.position, Quaternion.identity);
 			Destroy(this.gameObject, 0.35f);
 		}
 	}

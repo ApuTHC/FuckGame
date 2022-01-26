@@ -135,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coins: 1
   _type: 0
+  _pickUp: {fileID: 8009533899230981687, guid: 20314435516f7044187355ad797a1f8e, type: 3}
 --- !u!50 &7346208506005810225
 Rigidbody2D:
   serializedVersion: 4

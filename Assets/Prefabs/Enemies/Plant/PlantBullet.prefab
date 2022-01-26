@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3965453185133187689}
   - component: {fileID: 4467861464611965031}
+  - component: {fileID: 2373983977996590448}
+  - component: {fileID: -4542379589591399164}
+  - component: {fileID: -2070342126541919432}
   m_Layer: 10
   m_Name: PlantBullet
   m_TagString: Untagged
@@ -46,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,3 +85,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2373983977996590448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999954506159017294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ab1648177c2694ba3c7b36d6ea81de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPiece1: {fileID: 1969616736617264984, guid: 0517ba21a4128a74d9997a11b9faad05, type: 3}
+  _bulletPiece2: {fileID: 5496273966719385047, guid: 5c4af3c55f40c524e9af7803b8087b6e, type: 3}
+--- !u!58 &-4542379589591399164
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999954506159017294}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0029176474, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08942473
+--- !u!50 &-2070342126541919432
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999954506159017294}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

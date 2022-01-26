@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 560698982}
   - component: {fileID: 560698984}
   - component: {fileID: 335452776}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Wall Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 1977388299}
   - component: {fileID: 1977388301}
   - component: {fileID: 2104109573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Collider
   m_TagString: Player_Ground
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 6229320888145310924}
   - component: {fileID: 7400124465765458441}
   - component: {fileID: 3596342470861387806}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: NinjaFrog
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -191,14 +191,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f1b4221e5fd124b95aae8fd671c998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 30
-  _maxSpeed: 35
+  _speed: 35
+  _maxSpeed: 40
   _grounded: 0
-  _jumpPower: 5.5
+  _jumpPower: 6.5
   _floor: {fileID: 7747870710166932592, guid: e11f00c772fdf7342b8b89886f2b7fb2, type: 3}
   _ice: {fileID: 5046251593782689970, guid: c20ce7196db9aaa41ac8dc01bffe1f5b, type: 3}
   _sprintValue: 2
   _scoreNumber: {fileID: 0}
+  _hurt: {fileID: 3276052365741010923, guid: 97cd97e843985114ea04b098bb91a9f9, type: 3}
+  _death: {fileID: 8316068304778052496, guid: a2577293dc418a948bfb91c3b80e6fc5, type: 3}
   _jumpParticles: {fileID: 7244496912854819445, guid: 20396093a386c1940944f58e25e43b04, type: 3}
   _jumpParticles1: {fileID: 3324875733046132629, guid: bb24927ed63f169409a33b9af27a673e, type: 3}
   _fallParticles: {fileID: 6468691174848979131, guid: e899fdcbf4f9c9540bee5963f185b01c, type: 3}
@@ -249,7 +251,7 @@ GameObject:
   - component: {fileID: 7248280012180777998}
   - component: {fileID: 2682241353259930542}
   - component: {fileID: 7683950238122252353}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}

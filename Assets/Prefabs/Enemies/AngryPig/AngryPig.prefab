@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359e08f3376ad5e4687a0de5e1f5d22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hurt: {fileID: 5526019382134534954, guid: 656eb7939a803c04e9455ebf669cad35, type: 3}
+  _death: {fileID: 5913312735827604149, guid: 49277ad8be436de45bfe0d0a117a7193, type: 3}
   _speed: 2
   maxHp: 3
   damage: 25

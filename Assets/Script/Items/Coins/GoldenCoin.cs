@@ -9,6 +9,7 @@ public class GoldenCoin : MonoBehaviour
     private Animator _animator;
 	private CircleCollider2D _cc2d;
     private PlayerController _player;
+	public GameObject _pickUp;
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -22,6 +23,7 @@ public class GoldenCoin : MonoBehaviour
 		{
 			_player.LiveUp(_lives);
 			_animator.SetTrigger("Collected");
+			Instantiate(_pickUp, this.transform.position, Quaternion.identity);
 			Destroy(this.gameObject, 0.35f);
 		}
 	}
