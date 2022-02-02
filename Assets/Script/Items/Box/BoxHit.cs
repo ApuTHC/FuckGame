@@ -30,11 +30,12 @@ public class BoxHit : MonoBehaviour
     {
         if (col.gameObject.tag == "Player" || col.gameObject.tag == "Player_Ground")
         {
-            Vector3 vector = new Vector3(transform.position.x, transform.position.y, 1f);
             if (col.gameObject.tag == "Player_Ground")
             {
-                col.SendMessage("BoxJump", vector);
+                Vector3 vector = new Vector3(transform.position.x, transform.position.y, 1f);
+                col.SendMessage("BoxJump", vector);    
             }
+            
             if (hits > 1)
             {
                 _animator.SetTrigger("Hit");

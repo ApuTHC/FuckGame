@@ -84,6 +84,5 @@ public class SpikeBall : MonoBehaviour
 			rb2d.angularVelocity = -speed;
 		}
 		_moveSpeed = rb2d.angularVelocity;
-		Debug.Log(rb2d.angularVelocity);
     }
 }

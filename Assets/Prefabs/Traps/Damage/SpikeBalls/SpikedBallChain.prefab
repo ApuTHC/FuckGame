@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821560259862986705}
   - component: {fileID: 5941679870441175256}
+  - component: {fileID: 5978909144488423543}
   m_Layer: 0
   m_Name: SpikedBallChain
   m_TagString: Untagged
@@ -46,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,3 +83,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &5978909144488423543
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728524663482907115}
+  m_Enabled: 1
+  m_SortingLayerID: 1609817479
+  m_SortingLayer: 3
+  m_SortingOrder: 1

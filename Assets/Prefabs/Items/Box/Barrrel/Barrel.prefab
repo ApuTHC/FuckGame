@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 825499199}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,14 +150,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.24615669, y: 0.36459243}
-      - {x: -0.28693485, y: 0.36344242}
-      - {x: -0.36922836, y: 0.23544669}
+    - - {x: 0.33448458, y: 0.2591672}
+      - {x: 0.25065088, y: 0.39380372}
+      - {x: -0.27794647, y: 0.39265364}
+      - {x: -0.4006865, y: 0.21747053}
       - {x: -0.2540207, y: -0.26881343}
       - {x: -0.1495924, y: -0.30006346}
       - {x: 0.1964202, y: -0.28360623}
       - {x: 0.2745924, y: 0.0820989}
-      - {x: 0.33385658, y: 0.24412763}
+      - {x: 0.37879705, y: 0.19694024}
 --- !u!60 &825499199
 PolygonCollider2D:
   m_ObjectHideFlags: 0

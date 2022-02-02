@@ -45,6 +45,14 @@ public class CheckWall : MonoBehaviour
             aux++;
             _player.SetBombs(aux);
 		}
+        if (col.gameObject.tag == "Water")
+		{
+            _player.DeadRestart();
+		}
+        if (col.gameObject.tag == "CheckPoint")
+		{
+            _player.CheckPoint();
+		}
 	}
 
     public void SetLiveScore(Vector2 vector)

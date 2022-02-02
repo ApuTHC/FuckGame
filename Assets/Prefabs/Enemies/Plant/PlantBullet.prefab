@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4467861464611965031}
   - component: {fileID: 2373983977996590448}
   - component: {fileID: -4542379589591399164}
+  - component: {fileID: -3476697434189328639}
   - component: {fileID: -2070342126541919432}
   m_Layer: 10
   m_Name: PlantBullet
@@ -115,6 +116,20 @@ CircleCollider2D:
   m_Offset: {x: 0.0029176474, y: 0}
   serializedVersion: 2
   m_Radius: 0.08942473
+--- !u!114 &-3476697434189328639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6999954506159017294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ffddb972c27bc14d9563a673da880ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifetime: 5
+  _destroyChildrenOnDeath: 0
 --- !u!50 &-2070342126541919432
 Rigidbody2D:
   serializedVersion: 4

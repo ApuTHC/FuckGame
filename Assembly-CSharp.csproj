@@ -36,9 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Enemies\Plant\PlantBullet.cs" />
      <Compile Include="Assets\Script\Traps\Platform\MovilePlatform.cs" />
      <Compile Include="Assets\Script\Traps\Damage\Head&apos;s\RockHead.cs" />
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
+     <Compile Include="Assets\Script\Enemies\Plant\PlantPiece.cs" />
      <Compile Include="Assets\Script\UI\Bars\KeyBar.cs" />
      <Compile Include="Assets\Script\Traps\Impulse\Arrow\Arrow.cs" />
      <Compile Include="Assets\Script\Traps\Impulse\Trampoline\Trampoline.cs" />
@@ -57,6 +59,7 @@
      <Compile Include="Assets\Script\UI\Lives\Lives.cs" />
      <Compile Include="Assets\Script\Traps\Damage\Cannon\BallController.cs" />
      <Compile Include="Assets\Script\Enemies\Mushroom\Mushroom.cs" />
+     <Compile Include="Assets\Script\UI\Tutorial\Controls.cs" />
      <Compile Include="Assets\Script\Traps\Platform\MovilePlatform1.cs" />
      <Compile Include="Assets\Script\Items\Potion\RedPotionCollected.cs" />
      <Compile Include="Assets\Script\Enemies\AngryPig\AngryPig.cs" />
@@ -67,6 +70,7 @@
      <Compile Include="Assets\Script\UI\Bars\FloorBar.cs" />
      <Compile Include="Assets\Script\Items\Coins\GoldenCoin.cs" />
      <Compile Include="Assets\Script\Items\Chest\KeyCollected.cs" />
+     <Compile Include="Assets\Script\Enemies\Plant\Plant.cs" />
      <Compile Include="Assets\Script\Enemies\BlueBird\BlueBird.cs" />
      <Compile Include="Assets\Script\UI\Bars\BombBar.cs" />
      <Compile Include="Assets\Script\Items\Coins\SilverCoin.cs" />
@@ -95,9 +99,7 @@
      <Compile Include="Assets\Script\Items\Potion\BluePotionCollected.cs" />
      <Compile Include="Assets\Script\Items\Bomb\BombDrop.cs" />
      <Compile Include="Assets\Script\Items\Points\EndPoint.cs" />
-     <Compile Include="Assets\Script\Enemies\Plant\Plant.cs" />
-     <Compile Include="Assets\Script\Enemies\Plant\PlantBullet.cs" />
-     <Compile Include="Assets\Script\Enemies\Plant\PlantPiece.cs" />
+     <Compile Include="Assets\Script\UI\Win\Win.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

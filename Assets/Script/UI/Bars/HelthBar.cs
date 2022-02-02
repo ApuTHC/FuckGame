@@ -24,15 +24,7 @@ public class HelthBar : MonoBehaviour {
 		float _relation = _hp/_maxHp;
 		_healthBar.fillAmount=_relation;
 		if (_hp == 0f) { 
-			var aux =_player.GetLive();
-			if (_gameover != null && aux==0) {
-				_gameover.SendMessage ("GamesOver");
-			}
-			if (aux>0) {
-				_player.LiveUp(-1);
-			}
-
-
+			_player.DeadRestart();
 		}
 	}
 	public void Restart()

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7614228092933318932}
   - component: {fileID: 6392042252865921280}
   - component: {fileID: 2475562681264309657}
+  - component: {fileID: 3428112079544056625}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Enemy
@@ -119,13 +120,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7313a4ce160e4b840b5e69228a3e09b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 7032397818831622688}
-  speed: 4
-  chain: {fileID: 3709521557370902118, guid: 10fdd1b130a30d244b0aa94fa8c03b8a, type: 3}
-  isRect: 1
-  isCircle: 0
-  isEllipse: 0
-  curvature: 0
+  _target: {fileID: 7032397818831622688}
+  _speed: 0
+  _chain: {fileID: 3709521557370902118, guid: 10fdd1b130a30d244b0aa94fa8c03b8a, type: 3}
+  _isRect: 0
+  _isCircle: 0
+  _isEllipse: 0
+  _curvature: 0
 --- !u!114 &7614228092933318932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +169,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0df03a9869de744860995f4713d006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 25
+--- !u!210 &3428112079544056625
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611938268388098965}
+  m_Enabled: 1
+  m_SortingLayerID: 1609817479
+  m_SortingLayer: 3
+  m_SortingOrder: 3
 --- !u!1 &3825076290824912205
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ TagManager:
   - PlatStatic
   - Platform1
   - Bomb
+  - Water
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - Attack
   - Point
   - Boom
-  - 
+  - Details
   - 
   - 
   - 

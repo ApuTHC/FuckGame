@@ -22,7 +22,7 @@ public class BallController : MonoBehaviour
             _explotionArea.IsBoom(); 
             _animator.SetBool("isBoom", true);
             _rb2d.velocity = Vector3.zero;
-            Destroy(this.gameObject, 0.50f);
+            Destroy(this.gameObject, 0.20f);
         }
     }
 }

@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d515a5f537356448f7bc16e2310d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextscene: 
   dust: {fileID: 4012599298098686460}
 --- !u!61 &8987623576550236663
 BoxCollider2D:
@@ -156,6 +155,7 @@ GameObject:
   - component: {fileID: 2087861015879820158}
   - component: {fileID: 4012599298098686460}
   - component: {fileID: 2133262575535711004}
+  - component: {fileID: 8578654812076169224}
   m_Layer: 0
   m_Name: Confetti
   m_TagString: Untagged
@@ -4961,3 +4961,14 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!210 &8578654812076169224
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506679180098019524}
+  m_Enabled: 1
+  m_SortingLayerID: -1816544337
+  m_SortingLayer: 1
+  m_SortingOrder: 3

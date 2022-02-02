@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 6229320888145310924}
   - component: {fileID: 7400124465765458441}
   - component: {fileID: 3596342470861387806}
+  - component: {fileID: 1913735206}
   m_Layer: 6
   m_Name: NinjaFrog
   m_TagString: Player
@@ -177,7 +178,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6229320888145310924
 MonoBehaviour:
@@ -240,6 +241,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chargingBar: {fileID: 8502790208236428826, guid: 2f83aa6599bbd8d46a2c229a3816b719, type: 3}
   _bomb: {fileID: 4644006865948860696, guid: c3b5a421ae542554e85ee7f2d905b4c1, type: 3}
+--- !u!210 &1913735206
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397090050400593353}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
 --- !u!1 &6024990332600898287
 GameObject:
   m_ObjectHideFlags: 0

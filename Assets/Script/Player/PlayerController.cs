@@ -77,7 +77,22 @@ public class PlayerController : MonoBehaviour
     //Bombs
     private BombBar _bombBar;
     private int _bombs = 0;
+
+    //GameOver 
+    private GameOver _gameover;
+
+    //Win
+    private Win _win;
+
+
    
+
+   private void Awake()
+    {
+        transform.position = new Vector3 (0.5f, 0.7f, 0f);
+        PlayerPrefs.SetFloat("PlayerX", 0.5f);
+        PlayerPrefs.SetFloat("PlayerY", 0.7f);
+    }
     void Start()
     {
         _dialog = GetComponent<Dialogs>();
@@ -96,6 +111,9 @@ public class PlayerController : MonoBehaviour
         _livesBar = FindObjectOfType<Lives>();
         _coinsBar = FindObjectOfType<Coins>();
         
+        _gameover = FindObjectOfType<GameOver>();
+        _win = FindObjectOfType<Win>();
+
         _realSpeed = _speed;
 
         Invoke("SetStats", 0.5f);
@@ -167,6 +185,10 @@ public class PlayerController : MonoBehaviour
 			        Instantiate(_floor , pos , Quaternion.identity);
                     _flooraux = true;
                     Invoke("FloorIn" , 2f);
+                }
+                else
+                {
+                    No();
                 }
 
             }
@@ -340,8 +362,7 @@ public class PlayerController : MonoBehaviour
         _rb2d.velocity = Vector3.zero;
         if (_boxPos.z == 1f)
         {
-            float sidey = Mathf.Sign(Mathf.Abs(transform.position.y) - Mathf.Abs(_boxPos.y));
-            _rb2d.AddForce(Vector2.up * sidey * _jumpPower, ForceMode2D.Impulse);
+            _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             JumpParticles(0);
         }
         if (_boxPos.z == 0f)
@@ -521,6 +542,30 @@ public class PlayerController : MonoBehaviour
     public void WTF()
     {
         _dialog.Dialog("wtf");
+    }
+
+    public void DeadRestart()
+    {
+        if (_gameover != null && _lives==0) {
+            _gameover.SendMessage("GamesOver");
+        }
+        if (_lives>0) {
+            LiveUp(-1);
+            float posX = PlayerPrefs.GetFloat("PlayerX");
+            float posY = PlayerPrefs.GetFloat("PlayerY");
+            transform.position = new Vector3 (posX, posY, 0f);
+        }
+    }
+
+    public void CheckPoint()
+    {
+        PlayerPrefs.SetFloat("PlayerX", 65f);
+        PlayerPrefs.SetFloat("PlayerY", -14f); 
+    }
+
+    public void Win(bool win)
+    {
+        _win.Winn();
     }
 
 }

@@ -17,11 +17,11 @@ public class MainMenu : MonoBehaviour
     }
     public void NewGame()
     {
-        SceneManager.LoadScene("Pruebas");
+        SceneManager.LoadScene("Level1");
     }
     public void Continue()
     {
-        SceneManager.LoadScene("Pruebas");
+        SceneManager.LoadScene("Level1");
     }
     public void Levels()
     {
@@ -50,6 +50,6 @@ public class MainMenu : MonoBehaviour
     }
     public void Tutorial()
     {
-        //SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Tutorial");
     }
 }

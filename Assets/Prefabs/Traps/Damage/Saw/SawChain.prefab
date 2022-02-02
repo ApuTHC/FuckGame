@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375360836635184803}
   - component: {fileID: 4355289689110619435}
+  - component: {fileID: 1355436378996964907}
   m_Layer: 0
   m_Name: SawChain
   m_TagString: Untagged
@@ -82,3 +83,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1355436378996964907
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709521557370902118}
+  m_Enabled: 1
+  m_SortingLayerID: 1609817479
+  m_SortingLayer: 3
+  m_SortingOrder: 1

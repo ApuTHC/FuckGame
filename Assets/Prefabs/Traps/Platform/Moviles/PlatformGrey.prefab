@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 8565314054769136261}
-  _speed: 1
+  _speed: 5
   _chain: {fileID: 3976224032390278146, guid: 92fe2799c9673004698e4657ee95b3f0, type: 3}
   _isRect: 1
   _isCircle: 0

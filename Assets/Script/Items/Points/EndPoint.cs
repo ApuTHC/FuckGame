@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class EndPoint : MonoBehaviour
 {
     private Animator anim;
-	public string nextscene;
 	public ParticleSystem dust;
     
     void Start()
@@ -18,12 +17,6 @@ public class EndPoint : MonoBehaviour
 		{
 			anim.SetTrigger("Active");
 			dust.Play();
-			Invoke("NextLevel", 2f);
 		}
-	}
-
-	void NextLevel()
-    {
-		SceneManager.LoadScene(nextscene);
 	}
 }

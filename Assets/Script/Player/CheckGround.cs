@@ -41,7 +41,7 @@ public class CheckGround : MonoBehaviour
         if (col.gameObject.tag == "EndPoint")
         {
             _player.SetGround(true);
-            //Invoke("Win", 1.5f);
+            Invoke("Win", 1.5f);
         }
     }
 
@@ -66,6 +66,8 @@ public class CheckGround : MonoBehaviour
             }
         }
     }
+
+    
     
     public void BoxJump(Vector3 _boxPos)
     {
@@ -86,4 +88,9 @@ public class CheckGround : MonoBehaviour
     {
         _player.EnemyKnockBack(enemyPos);
     }
+
+    void Win()
+    {
+		_player.Win(true);
+	}
 }
